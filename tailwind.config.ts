@@ -25,6 +25,7 @@ const config: Config = {
       fontSize: {
         "display-xl": ["clamp(3rem, 7vw, 7rem)", { lineHeight: "1.02", letterSpacing: "-0.02em" }],
         "display-lg": ["clamp(2.25rem, 5vw, 4.5rem)", { lineHeight: "1.05", letterSpacing: "-0.015em" }],
+        "display-hero": ["clamp(2rem, 4.2vw, 3.5rem)", { lineHeight: "1.16", letterSpacing: "-0.015em" }],
         "display-md": ["clamp(1.75rem, 3.2vw, 2.75rem)", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
       },
       maxWidth: {

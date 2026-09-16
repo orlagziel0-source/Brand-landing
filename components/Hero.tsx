@@ -13,23 +13,38 @@ export default function Hero() {
     <section className="relative overflow-hidden pt-16 md:pt-24">
       <div className="container-editorial">
         <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, ease }}
+            className="mb-7 h-28 w-28 overflow-hidden rounded-full border border-line sm:h-36 sm:w-36"
+          >
+            <img
+              src="/portrait/portrait.jpg"
+              alt={dict.hero.portraitAlt}
+              width={400}
+              height={460}
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6 text-xs uppercase tracking-[0.22em] text-accent"
+            className="mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-accent sm:text-base"
           >
             {dict.hero.kicker}
           </motion.p>
 
-          <h1 className="space-y-4">
+          <h1 className="space-y-3">
             {dict.hero.paragraphs.map((paragraph, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 + i * 0.12, ease }}
-                className="block text-display-lg font-medium leading-[1.12] text-ink"
+                className="block text-display-hero font-medium leading-[1.16] text-ink"
               >
                 {paragraph}
               </motion.span>
@@ -40,7 +55,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-10"
+            className="mt-9"
           >
             <a
               href="#contact"
@@ -62,7 +77,7 @@ export default function Hero() {
           <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone">
             {dict.hero.logosLabel}
           </p>
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-4">
+          <div className="flex flex-wrap items-center gap-x-12 gap-y-5">
             <MondayLogo alt={dict.hero.logosAlt.monday} />
             <MetaLogo alt={dict.hero.logosAlt.meta} />
             <AppsFlyerLogo alt={dict.hero.logosAlt.appsflyer} />

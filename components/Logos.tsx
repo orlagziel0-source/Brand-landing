@@ -5,13 +5,11 @@ interface LogoProps {
 
 /**
  * "Worked at" logo marks — official brand assets, supplied by the client
- * and stored in /public/logos/. Rendered in grayscale at rest and in full
- * color on hover, all at a matched visual height so the row reads as one
- * balanced line regardless of each logo's native proportions.
+ * and stored in /public/logos/. Shown in full color at a matched visual
+ * height so the row reads as one balanced, confident line.
  */
 
-const base =
-  "h-6 w-auto object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-7";
+const base = "h-9 w-auto object-contain sm:h-11";
 
 export function MondayLogo({ alt, className }: LogoProps) {
   return (
