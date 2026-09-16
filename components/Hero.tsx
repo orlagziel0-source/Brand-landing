@@ -83,6 +83,43 @@ export default function Hero() {
             <AppsFlyerLogo alt={dict.hero.logosAlt.appsflyer} />
           </div>
         </motion.div>
+
+        {/* Experience summary — sits right alongside the logos, near the
+            top of the page, instead of further down the site. */}
+        <motion.div
+          id="about"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease }}
+          className="scroll-mt-28 mt-16 grid grid-cols-1 gap-10 border-t border-line pt-14 md:mt-20 md:grid-cols-[0.9fr_1.1fr] md:gap-16 md:pt-16"
+        >
+          <div>
+            <p className="mb-3 text-xs uppercase tracking-[0.2em] text-accent">
+              {dict.about.kicker}
+            </p>
+            <h2 className="text-display-md font-medium leading-tight text-ink">
+              {dict.about.title}
+            </h2>
+          </div>
+
+          <div>
+            <p className="text-lg leading-relaxed text-stone md:text-xl">
+              {dict.about.intro}
+            </p>
+
+            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
+              {dict.about.capabilities.map((capability) => (
+                <li
+                  key={capability}
+                  className="border-t border-line pt-3 text-sm text-ink/80"
+                >
+                  {capability}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

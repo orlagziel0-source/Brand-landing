@@ -42,7 +42,6 @@ export interface Dictionary {
   };
   pov: {
     lines: string[];
-    resolution: string;
   };
   help: {
     kicker: string;
@@ -102,8 +101,7 @@ export const translations: Record<Locale, Dictionary> = {
     hero: {
       kicker: "חוויית עובד · קהילה · תרבות",
       paragraphs: [
-        "אני יודעת איך לחבר בין מה שהעסק רוצה לבין מה שאנשים באמת צריכים.",
-        "שש שנים בתפקידי חוויית עובד בחברות גלובליות לימדו אותי איך לעשות את זה בפועל.",
+        "אני מחברת בין מה שהעסק רוצה להשיג לבין מה שגורם לאנשים להתחבר.",
       ],
       portraitAlt: "תמונת פורטרט מקצועית",
       logosLabel: "6 שנות ניסיון בחברות כמו",
@@ -115,10 +113,8 @@ export const translations: Record<Locale, Dictionary> = {
     },
     pov: {
       lines: [
-        "אירוע אחד לא הופך לקהילה.",
-        "פעילות אחת לא הופכת לחוויה.",
+        "לא כל קהל הוא קהילה, ולא כל אירוע מוצלח יוצר חוויית עובד.",
       ],
-      resolution: "זה קורה כשיש כיוון ברור מההתחלה, וכאן אני נכנסת.",
     },
     help: {
       kicker: "איך אני עוזרת",
@@ -214,8 +210,7 @@ export const translations: Record<Locale, Dictionary> = {
     hero: {
       kicker: "Employee Experience · Community · Culture",
       paragraphs: [
-        "I know how to connect what a business wants with what people actually need.",
-        "Six years in employee experience at global companies taught me how to do that in practice.",
+        "I connect what a business wants to achieve with what makes people truly connect.",
       ],
       portraitAlt: "Professional portrait",
       logosLabel: "6 years of experience across",
@@ -227,10 +222,8 @@ export const translations: Record<Locale, Dictionary> = {
     },
     pov: {
       lines: [
-        "One event doesn't make a community.",
-        "One activity doesn't make an experience.",
+        "Not every audience is a community, and not every successful event creates an employee experience.",
       ],
-      resolution: "That happens when there's a clear direction from the start, and that's where I come in.",
     },
     help: {
       kicker: "How I Help",

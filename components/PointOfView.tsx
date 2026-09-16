@@ -24,22 +24,6 @@ export default function PointOfView() {
               {line}
             </motion.p>
           ))}
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, delay: 0.4, ease }}
-            className="mt-10 md:mt-14"
-          >
-            <span
-              className="mb-4 block h-px w-14 bg-accent"
-              aria-hidden="true"
-            />
-            <p className="max-w-xl text-xl leading-relaxed text-stone md:text-2xl">
-              {dict.pov.resolution}
-            </p>
-          </motion.div>
         </div>
       </div>
     </section>
