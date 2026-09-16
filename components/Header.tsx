@@ -43,7 +43,7 @@ export default function Header() {
           <LanguageSwitcher />
           <a
             href="#contact"
-            className="rounded-full border border-ink px-5 py-2 text-sm text-ink transition-colors duration-200 hover:bg-ink hover:text-paper"
+            className="rounded-full border border-accent px-5 py-2 text-sm text-accent transition-colors duration-200 hover:bg-accent hover:text-paper"
           >
             {dict.cta.talk}
           </a>
@@ -94,7 +94,7 @@ export default function Header() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="rounded-full border border-ink px-5 py-2 text-sm text-ink"
+              className="rounded-full border border-accent px-5 py-2 text-sm text-accent"
             >
               {dict.cta.talk}
             </a>

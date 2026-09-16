@@ -82,11 +82,11 @@ export interface Dictionary {
 export const translations: Record<Locale, Dictionary> = {
   he: {
     meta: {
-      title: "[BRAND NAME], חוויית עובד, קהילה ותרבות שעובדות באמת",
+      title: "אור לגזיאל, חוויית עובד, קהילה ותרבות שעובדות באמת",
       description:
-        "[BRAND NAME] מחברת בין מה שהעסק רוצה לבין מה שאנשים באמת צריכים, דרך קהילות, חוויית עובד, אירועים ופרויקטים. שש שנות ניסיון בחברות כמו monday.com, Meta ו-AppsFlyer.",
+        "אור לגזיאל מחברת בין מה שהעסק רוצה לבין מה שאנשים באמת צריכים, דרך קהילות, חוויית עובד, אירועים ופרויקטים. שש שנות ניסיון בחברות כמו monday.com, Meta ו-AppsFlyer.",
     },
-    brand: "[BRAND NAME]",
+    brand: "אור לגזיאל",
     nav: {
       about: "עליי",
       help: "איך אני עוזרת",
@@ -102,8 +102,8 @@ export const translations: Record<Locale, Dictionary> = {
     hero: {
       kicker: "חוויית עובד · קהילה · תרבות",
       paragraphs: [
-        "שש שנים בתפקידי חוויית עובד בחברות גלובליות לימדו אותי איך לחבר בין מה שהעסק רוצה לבין מה שאנשים באמת צריכים.",
-        "היום אני עוזרת להפוך את החיבור הזה לקהילות, חוויות ויוזמות שעובדות באמת.",
+        "אני יודעת איך לחבר בין מה שהעסק רוצה לבין מה שאנשים באמת צריכים.",
+        "שש שנים בתפקידי חוויית עובד בחברות גלובליות לימדו אותי איך לעשות את זה בפועל.",
       ],
       portraitAlt: "תמונת פורטרט מקצועית",
       logosLabel: "6 שנות ניסיון בחברות כמו",
@@ -141,7 +141,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           index: "04",
-          title: "תגבור זמני",
+          title: "שותפות לתקופה",
           body: "חיזוק חיצוני לצוות קיים, לפרויקט, לתקופה עמוסה או לצורך מסוים, בלי צורך בגיוס למשרה מלאה.",
         },
       ],
@@ -176,13 +176,13 @@ export const translations: Record<Locale, Dictionary> = {
           body: "עבודה שוטפת וגמישה, לצד צוות קיים.",
         },
         fractional: {
-          title: "ליווי חלקי",
-          body: "שותפות מעמיקה לתקופה מוגדרת, בלי גיוס למשרה מלאה.",
+          title: "פרויקט ספציפי",
+          body: "נכנסת לצורך אחד וממוקד, בלי לקחת על עצמי את כל התהליך.",
         },
       },
     },
     finalCta: {
-      title: "יש לכם משהו שאתם רוצים לגרום לאנשים להתחבר אליו באמת?",
+      title: "רוצים לבנות חוויית עובד טובה יותר, קהילה חזקה יותר או מהלך שאנשים באמת ירגישו?",
       cta: "בואו נדבר",
       email: "[EMAIL]",
       linkedin: "[LINKEDIN URL]",
@@ -194,11 +194,11 @@ export const translations: Record<Locale, Dictionary> = {
   },
   en: {
     meta: {
-      title: "[BRAND NAME], people, community, and culture that actually work",
+      title: "Or Lagziel, people, community, and culture that actually work",
       description:
-        "[BRAND NAME] connects what a business wants with what people actually need, through communities, employee experience, events, and projects. Six years of experience across monday.com, Meta, and AppsFlyer.",
+        "Or Lagziel connects what a business wants with what people actually need, through communities, employee experience, events, and projects. Six years of experience across monday.com, Meta, and AppsFlyer.",
     },
-    brand: "[BRAND NAME]",
+    brand: "Or Lagziel",
     nav: {
       about: "About",
       help: "How I Help",
@@ -214,8 +214,8 @@ export const translations: Record<Locale, Dictionary> = {
     hero: {
       kicker: "Employee Experience · Community · Culture",
       paragraphs: [
-        "Six years leading employee experience at global companies taught me how to connect what a business wants with what people actually need.",
-        "Today I turn that connection into communities, experiences, and initiatives that actually work.",
+        "I know how to connect what a business wants with what people actually need.",
+        "Six years in employee experience at global companies taught me how to do that in practice.",
       ],
       portraitAlt: "Professional portrait",
       logosLabel: "6 years of experience across",
@@ -253,7 +253,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           index: "04",
-          title: "Temporary reinforcement",
+          title: "Partnership for a period",
           body: "Outside support for an existing team, a project, a busy period, or a specific need, without hiring for a full-time role.",
         },
       ],
@@ -288,13 +288,13 @@ export const translations: Record<Locale, Dictionary> = {
           body: "Flexible, ongoing work alongside an existing team.",
         },
         fractional: {
-          title: "Fractional support",
-          body: "A deeper partnership for a defined period, without hiring a full-time role.",
+          title: "Specific project",
+          body: "I step in for one focused need, without taking on the whole process.",
         },
       },
     },
     finalCta: {
-      title: "Want to build something people genuinely connect with?",
+      title: "Want to build a better employee experience, a stronger community, or something people actually feel?",
       cta: "Let's talk",
       email: "[EMAIL]",
       linkedin: "[LINKEDIN URL]",

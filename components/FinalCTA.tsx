@@ -9,7 +9,10 @@ export default function FinalCTA() {
   const { dict } = useLanguage();
 
   return (
-    <section id="contact" className="scroll-mt-28 py-28 md:py-40">
+    <section
+      id="contact"
+      className="scroll-mt-28 bg-accent py-28 text-paper md:py-40"
+    >
       <div className="container-editorial">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -18,20 +21,20 @@ export default function FinalCTA() {
           transition={{ duration: 0.8, ease }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-display-lg font-medium leading-[1.12] text-ink">
+          <h2 className="text-display-lg font-medium leading-[1.12] text-paper">
             {dict.finalCta.title}
           </h2>
 
           <div className="mt-10">
             <a
               href={`mailto:${dict.finalCta.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-base text-paper transition-colors duration-200 hover:bg-accent"
+              className="inline-flex items-center gap-2 rounded-full bg-paper px-8 py-4 text-base text-accent transition-colors duration-200 hover:bg-ink hover:text-paper"
             >
               {dict.finalCta.cta}
             </a>
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-2 text-sm text-stone sm:flex-row sm:justify-center sm:gap-4">
+          <div className="mt-8 flex flex-col items-center gap-2 text-sm text-paper/75 sm:flex-row sm:justify-center sm:gap-4">
             <span>{dict.finalCta.email}</span>
             <span className="hidden sm:inline" aria-hidden="true">
               ·
@@ -40,7 +43,7 @@ export default function FinalCTA() {
               href={dict.finalCta.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-line underline-offset-4 transition-colors hover:text-ink"
+              className="underline decoration-line-dark underline-offset-4 transition-colors hover:text-paper"
             >
               {dict.finalCta.linkedinLabel}
             </a>

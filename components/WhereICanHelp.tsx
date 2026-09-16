@@ -30,7 +30,7 @@ export default function WhereICanHelp() {
               transition={{ duration: 0.6, delay: i * 0.05, ease }}
               className="grid grid-cols-1 gap-3 border-t border-line py-8 md:grid-cols-[96px_1fr_1.15fr] md:gap-10 md:py-12"
             >
-              <span className="text-sm text-stone md:pt-1.5">
+              <span className="text-sm font-semibold text-accent md:pt-1.5">
                 {item.index}
               </span>
               <h3 className="text-2xl font-medium leading-snug text-ink md:text-3xl">

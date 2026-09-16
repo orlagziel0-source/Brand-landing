@@ -4,43 +4,47 @@ interface LogoProps {
 }
 
 /**
- * Placeholder "worked at" logo treatment.
- *
- * These render as clean, evenly-weighted typographic marks so the hero
- * looks finished out of the box. To use the real brand assets instead:
- *
- *   1. Drop the official SVG/PNG files into /public/logos/
- *      (see /public/logos/README.md)
- *   2. Swap the <span> below for an <Image src="/logos/…" ... /> in each
- *      component, keeping the `alt` text.
- *
- * Keep all three at a similar visual size/weight so they read as one
- * balanced row (per the brief).
+ * "Worked at" logo marks — official brand assets, supplied by the client
+ * and stored in /public/logos/. Rendered in grayscale at rest and in full
+ * color on hover, all at a matched visual height so the row reads as one
+ * balanced line regardless of each logo's native proportions.
  */
 
 const base =
-  "inline-flex items-center text-[1.05em] font-semibold tracking-tight text-ink/70 transition-colors duration-200";
+  "h-6 w-auto object-contain grayscale opacity-70 transition-all duration-300 hover:grayscale-0 hover:opacity-100 sm:h-7";
 
 export function MondayLogo({ alt, className }: LogoProps) {
   return (
-    <span role="img" aria-label={alt} className={`${base} ${className ?? ""}`}>
-      monday<span className="text-accent">.com</span>
-    </span>
+    <img
+      src="/logos/monday.png"
+      alt={alt}
+      width={1940}
+      height={575}
+      className={`${base} ${className ?? ""}`}
+    />
   );
 }
 
 export function MetaLogo({ alt, className }: LogoProps) {
   return (
-    <span role="img" aria-label={alt} className={`${base} ${className ?? ""}`}>
-      Meta
-    </span>
+    <img
+      src="/logos/meta.png"
+      alt={alt}
+      width={1849}
+      height={554}
+      className={`${base} ${className ?? ""}`}
+    />
   );
 }
 
 export function AppsFlyerLogo({ alt, className }: LogoProps) {
   return (
-    <span role="img" aria-label={alt} className={`${base} ${className ?? ""}`}>
-      AppsFlyer
-    </span>
+    <img
+      src="/logos/appsflyer.png"
+      alt={alt}
+      width={2026}
+      height={677}
+      className={`${base} ${className ?? ""}`}
+    />
   );
 }

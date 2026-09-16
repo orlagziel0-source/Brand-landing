@@ -1,22 +1,10 @@
 # Company logos
 
-The hero section references three previous employers: monday.com, Meta, and
-AppsFlyer. For legal/brand reasons this project ships with clean typographic
-placeholders instead of the official logo files (see `components/Logos.tsx`).
+`monday.png`, `meta.png`, and `appsflyer.png` are the official logo files
+the client supplied, rendered in `components/Logos.tsx` in the hero's
+"worked at" row (grayscale at rest, full color on hover, matched heights).
 
-To use the real marks:
-
-1. Download the official SVG (preferred) or PNG logo for each company from
-   their brand/press pages.
-2. Save them here as, for example:
-   - `monday.svg`
-   - `meta.svg`
-   - `appsflyer.svg`
-3. In `components/Logos.tsx`, replace the placeholder `<span>` in each
-   component with a `next/image` `<Image>` (or a plain `<img>`) pointing at
-   `/logos/monday.svg` etc., keeping the existing `alt` prop.
-4. Keep all three logos visually balanced (similar height/weight) — resize
-   or add padding as needed so no one logo dominates the row.
-
-A monochrome/subtle treatment (e.g. `filter: grayscale(1)` or a single-tone
-SVG) tends to fit this design best.
+To update a logo, replace the corresponding file here (keep the filename,
+or update the `src` in `Logos.tsx`). Crop tightly to the mark itself —
+`Logos.tsx` trims to a fixed visual height, so extra padding in the source
+file just shrinks the logo relative to the others.

@@ -18,6 +18,15 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease }}
           >
+            <div className="mb-7 h-20 w-20 overflow-hidden rounded-full border border-line md:h-24 md:w-24">
+              <img
+                src="/portrait/portrait.jpg"
+                alt={dict.hero.portraitAlt}
+                width={400}
+                height={460}
+                className="h-full w-full object-cover"
+              />
+            </div>
             <p className="mb-3 text-xs uppercase tracking-[0.2em] text-accent">
               {dict.about.kicker}
             </p>
