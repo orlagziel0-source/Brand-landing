@@ -12,18 +12,31 @@ export default function PointOfView() {
     <section className="py-24 md:py-36">
       <div className="container-editorial">
         <div className="mx-auto max-w-4xl">
-          {dict.pov.lines.map((line, i) => (
-            <motion.p
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: i * 0.12, ease }}
-              className="text-display-lg font-medium leading-[1.08] text-ink"
-            >
-              {line}
-            </motion.p>
-          ))}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease }}
+            className="text-display-lg font-medium leading-[1.08] text-ink"
+          >
+            {dict.pov.statement}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.15, ease }}
+            className="mt-10 md:mt-14"
+          >
+            <span
+              className="mb-4 block h-px w-14 bg-accent"
+              aria-hidden="true"
+            />
+            <p className="max-w-2xl text-lg leading-relaxed text-stone md:text-xl">
+              {dict.pov.supporting}
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

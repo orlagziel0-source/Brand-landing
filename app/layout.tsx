@@ -23,22 +23,22 @@ const heebo = Heebo({
 // generateMetadata keyed off the route and add hreflang alternates.
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
-  title: "[BRAND NAME] — חוויית עובד, קהילה ותרבות שעובדות באמת",
+  title: "אור לגזיאל, חוויית עובד שמחברת בין העסק לאנשים",
   description:
-    "[BRAND NAME] מחברת בין מה שהעסק רוצה לבין מה שאנשים באמת צריכים — דרך קהילות, חוויית עובד, אירועים ופרויקטים.",
+    "תכנון, בנייה והוצאה לפועל של תוכניות חוויית עובד, קהילות ואירועים בעלי מטרה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
   openGraph: {
-    title: "[BRAND NAME] — חוויית עובד, קהילה ותרבות שעובדות באמת",
+    title: "אור לגזיאל, חוויית עובד שמחברת בין העסק לאנשים",
     description:
-      "[BRAND NAME] מחברת בין מה שהעסק רוצה לבין מה שאנשים באמת צריכים — דרך קהילות, חוויית עובד, אירועים ופרויקטים.",
+      "תכנון, בנייה והוצאה לפועל של תוכניות חוויית עובד, קהילות ואירועים בעלי מטרה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
     type: "website",
     locale: "he_IL",
     alternateLocale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "[BRAND NAME]",
+    title: "אור לגזיאל",
     description:
-      "People, community, and culture that actually work.",
+      "Employee experience that connects business and people.",
   },
 };
 

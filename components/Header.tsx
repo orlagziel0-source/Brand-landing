@@ -9,8 +9,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const navItems = [
+    { href: "#build", label: dict.nav.build },
     { href: "#about", label: dict.nav.about },
-    { href: "#help", label: dict.nav.help },
     { href: "#contact", label: dict.nav.contact },
   ];
 

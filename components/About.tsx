@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
+import { MondayLogo, MetaLogo, AppsFlyerLogo } from "./Logos";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -11,19 +12,19 @@ export default function About() {
   return (
     <section id="about" className="scroll-mt-28 py-24 md:py-32">
       <div className="container-editorial">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-16 lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 1.02 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease }}
+            transition={{ duration: 0.8, ease }}
+            className="relative aspect-[4/5] w-full overflow-hidden border border-line"
           >
-            <p className="mb-3 text-xs uppercase tracking-[0.2em] text-accent">
-              {dict.about.kicker}
-            </p>
-            <h2 className="text-display-md font-medium leading-tight text-ink">
-              {dict.about.title}
-            </h2>
+            <img
+              src="/portrait/portrait.jpg"
+              alt={dict.about.portraitAlt}
+              className="h-full w-full object-cover"
+            />
           </motion.div>
 
           <motion.div
@@ -32,20 +33,31 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1, ease }}
           >
-            <p className="text-lg leading-relaxed text-stone md:text-xl">
-              {dict.about.intro}
-            </p>
+            <h2 className="text-display-md font-medium leading-tight text-ink">
+              {dict.about.title}
+            </h2>
 
-            <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3">
-              {dict.about.capabilities.map((capability) => (
-                <li
-                  key={capability}
-                  className="border-t border-line pt-3 text-sm text-ink/80"
+            <div className="mt-6 space-y-4">
+              {dict.about.body.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="text-lg leading-relaxed text-stone md:text-xl"
                 >
-                  {capability}
-                </li>
+                  {paragraph}
+                </p>
               ))}
-            </ul>
+            </div>
+
+            <div className="mt-12 border-t border-line pt-8">
+              <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone">
+                {dict.about.logosLabel}
+              </p>
+              <div className="flex flex-wrap items-center gap-x-12 gap-y-5">
+                <MondayLogo alt={dict.about.logosAlt.monday} />
+                <MetaLogo alt={dict.about.logosAlt.meta} />
+                <AppsFlyerLogo alt={dict.about.logosAlt.appsflyer} />
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
