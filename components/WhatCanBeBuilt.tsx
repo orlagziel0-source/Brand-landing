@@ -7,7 +7,6 @@ const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function WhatCanBeBuilt() {
   const { dict } = useLanguage();
-  const [featured, ...rest] = dict.build.items;
 
   return (
     <section id="build" className="scroll-mt-28 py-24 md:py-32">
@@ -46,57 +45,29 @@ export default function WhatCanBeBuilt() {
           </motion.p>
         </div>
 
-        {/* Featured service */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.1, ease }}
-          className="relative mt-14 max-w-2xl overflow-hidden border border-line bg-accent/[0.04] p-6 md:mt-20 md:p-10"
-        >
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-3 end-4 select-none text-[4.5rem] font-semibold leading-none text-accent/[0.16] md:text-[6rem]"
-          >
-            01
-          </span>
-          <h3 className="relative max-w-[85%] text-2xl font-medium leading-snug text-ink md:text-3xl">
-            {featured.title}
-          </h3>
-          <p className="relative mt-3 text-base leading-relaxed text-stone md:text-lg">
-            {featured.body}
-          </p>
-          <p className="relative mt-4 text-sm font-medium text-accent md:text-base">
-            — {featured.outcome}
-          </p>
-        </motion.div>
-
-        {/* Supporting services, grouped tightly for contrast against the featured card */}
-        <div className="mt-3 max-w-2xl divide-y divide-line border-y border-line md:mt-4">
-          {rest.map((item, i) => (
+        {/* Services — uniform numbered cards */}
+        <div className="mt-14 max-w-2xl space-y-4 md:mt-20 md:space-y-5">
+          {dict.build.items.map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: i * 0.06, ease }}
-              className="flex gap-4 py-6 md:gap-5 md:py-7"
+              className="border border-line p-6 md:p-8"
             >
-              <span
-                aria-hidden="true"
-                className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent md:mt-3"
-              />
-              <div className="min-w-0 flex-1">
-                <h3 className="text-lg font-medium leading-snug text-ink md:text-xl">
-                  {item.title}
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-stone md:text-base">
-                  {item.body}
-                </p>
-                <p className="mt-2 text-xs font-medium text-accent md:text-sm">
-                  — {item.outcome}
-                </p>
-              </div>
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-xs font-semibold text-accent md:h-9 md:w-9 md:text-sm">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 text-xl font-medium leading-snug text-ink md:text-2xl">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-stone md:text-base">
+                {item.body}
+              </p>
+              <p className="mt-3 text-xs font-medium text-accent md:text-sm">
+                — {item.outcome}
+              </p>
             </motion.div>
           ))}
         </div>
