@@ -25,7 +25,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-paper/80 md:text-xl"
+            className="mt-7 max-w-xl text-xl leading-relaxed text-paper/80 md:text-2xl"
           >
             {dict.hero.subtitle}
           </motion.p>
@@ -34,7 +34,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 text-sm uppercase tracking-[0.18em] text-paper/70"
+            className="mt-8 text-base uppercase tracking-[0.14em] text-paper/70"
           >
             {dict.hero.serviceLine}
           </motion.p>

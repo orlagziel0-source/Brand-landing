@@ -31,13 +31,13 @@ export default function WhatCanBeBuilt() {
               transition={{ duration: 0.6, delay: i * 0.05, ease }}
               className="grid grid-cols-1 gap-3 border-t border-line py-8 md:grid-cols-[88px_1fr_1.15fr] md:gap-10 md:py-12"
             >
-              <span className="text-sm font-semibold text-accent md:pt-1.5">
+              <span className="text-base font-semibold text-accent md:pt-1.5">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="text-2xl font-medium leading-snug text-ink md:text-3xl">
                 {item.title}
               </h3>
-              <p className="max-w-xl text-base leading-relaxed text-stone md:pt-1.5 md:text-lg">
+              <p className="max-w-xl text-lg leading-relaxed text-stone md:pt-1.5 md:text-xl">
                 {item.body}
               </p>
             </motion.div>
@@ -50,7 +50,7 @@ export default function WhatCanBeBuilt() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6 }}
-          className="mt-10 max-w-2xl text-base leading-relaxed text-stone md:mt-14 md:text-lg"
+          className="mt-10 max-w-2xl text-lg leading-relaxed text-stone md:mt-14 md:text-xl"
         >
           {dict.build.engagementLine}
         </motion.p>

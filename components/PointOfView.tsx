@@ -33,7 +33,7 @@ export default function PointOfView() {
               className="mb-4 block h-px w-14 bg-accent"
               aria-hidden="true"
             />
-            <p className="max-w-2xl text-lg leading-relaxed text-stone md:text-xl">
+            <p className="max-w-2xl text-xl leading-relaxed text-stone md:text-2xl">
               {dict.pov.supporting}
             </p>
           </motion.div>

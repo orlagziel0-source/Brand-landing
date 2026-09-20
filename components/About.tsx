@@ -49,7 +49,7 @@ export default function About() {
             </div>
 
             <div className="mt-12 border-t border-line pt-8">
-              <p className="mb-5 text-xs uppercase tracking-[0.18em] text-stone">
+              <p className="mb-5 text-sm uppercase tracking-[0.14em] text-stone">
                 {dict.about.logosLabel}
               </p>
               <div className="flex flex-wrap items-center gap-x-12 gap-y-5">

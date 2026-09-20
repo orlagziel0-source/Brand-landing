@@ -34,7 +34,7 @@ export default function FinalCTA() {
             </a>
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-2 text-sm text-paper/75 sm:flex-row sm:justify-center sm:gap-4">
+          <div className="mt-8 flex flex-col items-center gap-2 text-base text-paper/75 sm:flex-row sm:justify-center sm:gap-4">
             <span>{dict.finalCta.email}</span>
             <span className="hidden sm:inline" aria-hidden="true">
               ·
