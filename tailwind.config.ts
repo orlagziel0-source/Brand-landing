@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#F7F4EE",
+        paper: "#F2E8D8",
         ink: "#1A1816",
         stone: "#8B8479",
         "stone-light": "#C9C3B7",
         accent: "#7A2333",
         "accent-dark": "#59182A",
         line: "rgba(26, 24, 22, 0.12)",
-        "line-dark": "rgba(247, 244, 238, 0.16)",
+        "line-dark": "rgba(242, 232, 216, 0.16)",
       },
       fontFamily: {
         sans: ["var(--font-manrope)", "system-ui", "sans-serif"],

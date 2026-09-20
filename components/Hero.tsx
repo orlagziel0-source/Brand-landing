@@ -9,14 +9,14 @@ export default function Hero() {
   const { dict } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden pt-20 md:pt-32">
+    <section className="relative overflow-hidden bg-accent pb-20 pt-24 text-paper md:pb-28 md:pt-32">
       <div className="container-editorial">
         <div className="max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="text-display-lg font-medium leading-[1.1] text-ink"
+            className="text-display-lg font-medium leading-[1.1] text-paper"
           >
             {dict.hero.title}
           </motion.h1>
@@ -25,7 +25,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="mt-7 max-w-xl text-lg leading-relaxed text-stone md:text-xl"
+            className="mt-7 max-w-xl text-lg leading-relaxed text-paper/80 md:text-xl"
           >
             {dict.hero.subtitle}
           </motion.p>
@@ -34,7 +34,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 text-sm uppercase tracking-[0.18em] text-accent"
+            className="mt-8 text-sm uppercase tracking-[0.18em] text-paper/70"
           >
             {dict.hero.serviceLine}
           </motion.p>
@@ -47,7 +47,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm text-paper transition-colors duration-200 hover:bg-accent-dark"
+              className="inline-flex items-center gap-2 rounded-full bg-paper px-7 py-3.5 text-sm text-accent transition-colors duration-200 hover:bg-ink hover:text-paper"
             >
               {dict.cta.talk}
             </a>
