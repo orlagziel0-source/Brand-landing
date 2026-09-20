@@ -118,7 +118,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
       engagementLine:
-        "אפשר לעבוד בפרויקט נקודתי, בייעוץ, בליווי והוצאה לפועל או בשותפות חודשית לאורך השנה.",
+        "אפשר לעבוד בפרויקט נקודתי, בייעוץ, בליווי והוצאה לפועל או בשותפות חודשית לאורך השנה, בלי צורך בגיוס למשרה מלאה.",
     },
     about: {
       title: "6 שנים בעולמות חוויית העובד בחברות גלובליות.",
@@ -202,7 +202,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
       ],
       engagementLine:
-        "Work can happen as a single project, advisory support, hands-on delivery, or an ongoing monthly partnership throughout the year.",
+        "Work can happen as a single project, advisory support, hands-on delivery, or an ongoing monthly partnership throughout the year, with no need to hire for a full-time role.",
     },
     about: {
       title: "Six years in employee experience, inside global companies.",
