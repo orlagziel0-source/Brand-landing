@@ -23,11 +23,11 @@ const heebo = Heebo({
 // generateMetadata keyed off the route and add hreflang alternates.
 export const metadata: Metadata = {
   metadataBase: new URL("https://brand-landing-flax.vercel.app"),
-  title: "אור לגזיאל · People Experience",
+  title: "אור לגזיאל · Or Lagziel · People Experience",
   description:
     "תכנון, בנייה והוצאה לפועל של תוכניות חוויית עובד, קהילות ואירועים בעלי מטרה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
   openGraph: {
-    title: "אור לגזיאל · People Experience",
+    title: "אור לגזיאל · Or Lagziel · People Experience",
     description:
       "תכנון, בנייה והוצאה לפועל של תוכניות חוויית עובד, קהילות ואירועים בעלי מטרה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "אור לגזיאל · People Experience",
+    title: "אור לגזיאל · Or Lagziel · People Experience",
     description:
       "Employee experience that connects business and people.",
   },

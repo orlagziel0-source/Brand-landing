@@ -69,7 +69,7 @@ export const translations: Record<Locale, Dictionary> = {
     },
     brand: "אור לגזיאל",
     nav: {
-      build: "מה אפשר לבנות",
+      build: "מה אפשר לבנות יחד",
       about: "קצת עליי",
       contact: "יצירת קשר",
     },
@@ -93,7 +93,7 @@ export const translations: Record<Locale, Dictionary> = {
         "חוויית עובד נבנית מהרבה רגעים קטנים לאורך הדרך, איך מצטרפים לחברה, איך מציינים רגעים אישיים, איך מתקשרים, איך בונים קהילה, ואיך גורמים לאנשים להרגיש שיש מחשבה מאחורי הדברים.",
     },
     build: {
-      title: "מה אפשר לבנות",
+      title: "מה אפשר לבנות יחד",
       items: [
         {
           title: "תוכנית שנתית לחוויית עובד",
@@ -152,7 +152,7 @@ export const translations: Record<Locale, Dictionary> = {
     },
     brand: "Or Lagziel",
     nav: {
-      build: "What We Build",
+      build: "What We Can Build Together",
       about: "About",
       contact: "Contact",
     },
@@ -177,7 +177,7 @@ export const translations: Record<Locale, Dictionary> = {
         "Employee experience is built from many small moments along the way, how people join a company, how personal milestones are marked, how things are communicated, how community is built, and how people feel the thought behind it all.",
     },
     build: {
-      title: "What We Build",
+      title: "What We Can Build Together",
       items: [
         {
           title: "Annual employee experience plan",
