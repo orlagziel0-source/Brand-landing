@@ -3,6 +3,7 @@ export type Locale = "he" | "en";
 export interface BuildItem {
   title: string;
   body: string;
+  outcome: string;
 }
 
 export interface Dictionary {
@@ -34,7 +35,10 @@ export interface Dictionary {
     supporting: string;
   };
   build: {
-    title: string;
+    eyebrow: string;
+    statementLead: string;
+    statementEmphasis: string;
+    supporting: string;
     items: BuildItem[];
     engagementLine: string;
   };
@@ -94,31 +98,35 @@ export const translations: Record<Locale, Dictionary> = {
         "חוויית עובד נבנית מהרבה רגעים קטנים לאורך הדרך, איך מצטרפים לחברה, איך מציינים רגעים אישיים, איך מתקשרים, איך בונים קהילה, ואיך גורמים לאנשים להרגיש שיש מחשבה מאחורי הדברים.",
     },
     build: {
-      title: "מה אפשר לבנות יחד",
+      eyebrow: "מה אפשר לבנות יחד",
+      statementLead: "לא כל ארגון צריך עוד תקן.",
+      statementEmphasis: "כן צריך מישהו שייקח את חוויית העובד קדימה.",
+      supporting:
+        "Employee Experience במודל גמיש — לפרויקט, לתקופה או לליווי שוטף, בלי לגייס משרה מלאה.",
       items: [
         {
           title: "תוכנית שנתית לחוויית עובד",
-          body: "בניית תמונת השנה, מטרות, עוגנים, תקציב, לוח פעילות ותכנון קדימה.",
+          body: "מטרות, תקציב ולוח שנה אחד ברור לכל השנה.",
+          outcome: "כדי שכל פעולה תדע למה היא קורית.",
         },
         {
           title: "מסע העובד, רווחה ומשפחה",
-          body: "בניית חוויה לאורך נקודות המגע המשמעותיות של העובד, מהצטרפות ועד רגעים אישיים, משפחה, בריאות ורווחה.",
+          body: "מרגע ההצטרפות ועד רגעים אישיים, משפחה ובריאות.",
+          outcome: "כדי שעובדים ירגישו שרואים אותם.",
         },
         {
-          title: "קהילות פנים־ארגוניות",
-          body: "בניית קהילות לעובדים סביב תחומי עניין, תחביבים ועולמות תוכן, עם העובדים עצמם כמובילי הקהילה.",
-        },
-        {
-          title: "אירועים ומהלכים עם מטרה",
-          body: "חגים, מפגשים, אירועים ופעילויות שנבנים כחלק מחוויית העובד ומתוך מטרה ברורה.",
+          title: "קהילות ואירועים עם מטרה",
+          body: "קהילות פנימיות ואירועים שנבנים סביב מטרה אחת ברורה.",
+          outcome: "כדי שהחיבור בין אנשים יהיה אמיתי, לא טכני.",
         },
         {
           title: "פרויקט ממוקד",
-          body: "בניית תחום חדש, ריענון מהלך קיים או הובלת פרויקט מקצה לקצה.",
+          body: "ריענון מהלך קיים, בניית תחום חדש, או הובלה מקצה לקצה.",
+          outcome: "כדי לזוז מהר, בלי תהליך גיוס ארוך.",
         },
       ],
       engagementLine:
-        "אפשר לעבוד בפרויקט נקודתי, בייעוץ, בליווי והוצאה לפועל או בשותפות חודשית לאורך השנה, בלי צורך בגיוס למשרה מלאה.",
+        "אפשר לעבוד בפרויקט נקודתי, בייעוץ, בליווי והוצאה לפועל או בשותפות חודשית לאורך השנה.",
     },
     about: {
       title: "6 שנים בעולמות חוויית העובד בחברות גלובליות.",
@@ -178,31 +186,35 @@ export const translations: Record<Locale, Dictionary> = {
         "Employee experience is built from many small moments along the way, how people join a company, how personal milestones are marked, how things are communicated, how community is built, and how people feel the thought behind it all.",
     },
     build: {
-      title: "What We Can Build Together",
+      eyebrow: "What We Can Build Together",
+      statementLead: "Not every organization needs another standard.",
+      statementEmphasis: "It needs someone to take employee experience forward.",
+      supporting:
+        "Employee experience on a flexible model — a project, a defined period, or ongoing support, without hiring a full-time role.",
       items: [
         {
           title: "Annual employee experience plan",
-          body: "Building the picture for the year: goals, anchor moments, budget, activity calendar, and forward planning.",
+          body: "Goals, budget, and one clear calendar for the year.",
+          outcome: "So every initiative knows why it exists.",
         },
         {
           title: "Employee journey, wellbeing & family",
-          body: "Building experience across the moments that matter most, from onboarding to personal milestones, family, health, and wellbeing.",
+          body: "From onboarding to personal milestones, family, and health.",
+          outcome: "So people feel genuinely seen.",
         },
         {
-          title: "Internal communities",
-          body: "Building employee communities around shared interests, hobbies, and topics, led by employees themselves.",
-        },
-        {
-          title: "Events and initiatives with purpose",
-          body: "Holidays, gatherings, events, and activities built as part of the employee experience, with a clear purpose behind them.",
+          title: "Communities & purposeful events",
+          body: "Internal communities and events built around one clear purpose.",
+          outcome: "So connection feels real, not procedural.",
         },
         {
           title: "Focused projects",
-          body: "Building a new function, refreshing an existing initiative, or leading a project end to end.",
+          body: "Refresh an existing initiative, build something new, or lead end to end.",
+          outcome: "So you can move fast, without a long hiring process.",
         },
       ],
       engagementLine:
-        "Work can happen as a single project, advisory support, hands-on delivery, or an ongoing monthly partnership throughout the year, with no need to hire for a full-time role.",
+        "Work can happen as a single project, advisory support, hands-on delivery, or an ongoing monthly partnership throughout the year.",
     },
     about: {
       title: "Six years in employee experience, inside global companies.",
