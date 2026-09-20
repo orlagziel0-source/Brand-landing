@@ -52,18 +52,18 @@ export default function WhatCanBeBuilt() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.1, ease }}
-          className="relative mt-14 overflow-hidden border border-line bg-accent/[0.04] p-6 md:mt-20 md:p-10"
+          className="relative mt-14 max-w-2xl overflow-hidden border border-line bg-accent/[0.04] p-6 md:mt-20 md:p-10"
         >
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute -top-3 end-4 select-none text-[5rem] font-semibold leading-none text-accent/10 md:text-[7rem]"
+            className="pointer-events-none absolute -top-3 end-4 select-none text-[4.5rem] font-semibold leading-none text-accent/[0.16] md:text-[6rem]"
           >
             01
           </span>
-          <h3 className="relative max-w-sm text-2xl font-medium leading-snug text-ink md:text-3xl">
+          <h3 className="relative max-w-[85%] text-2xl font-medium leading-snug text-ink md:text-3xl">
             {featured.title}
           </h3>
-          <p className="relative mt-3 max-w-sm text-base leading-relaxed text-stone md:text-lg">
+          <p className="relative mt-3 text-base leading-relaxed text-stone md:text-lg">
             {featured.body}
           </p>
           <p className="relative mt-4 text-sm font-medium text-accent md:text-base">
@@ -72,7 +72,7 @@ export default function WhatCanBeBuilt() {
         </motion.div>
 
         {/* Supporting services, grouped tightly for contrast against the featured card */}
-        <div className="mt-3 divide-y divide-line border-y border-line md:mt-4">
+        <div className="mt-3 max-w-2xl divide-y divide-line border-y border-line md:mt-4">
           {rest.map((item, i) => (
             <motion.div
               key={item.title}
@@ -86,11 +86,11 @@ export default function WhatCanBeBuilt() {
                 aria-hidden="true"
                 className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent md:mt-3"
               />
-              <div>
+              <div className="min-w-0 flex-1">
                 <h3 className="text-lg font-medium leading-snug text-ink md:text-xl">
                   {item.title}
                 </h3>
-                <p className="mt-1.5 max-w-md text-sm leading-relaxed text-stone md:text-base">
+                <p className="mt-1.5 text-sm leading-relaxed text-stone md:text-base">
                   {item.body}
                 </p>
                 <p className="mt-2 text-xs font-medium text-accent md:text-sm">
