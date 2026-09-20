@@ -9,41 +9,52 @@ export default function Hero() {
   const { dict } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-accent pb-20 pt-24 text-paper md:pb-28 md:pt-32">
+    <section className="relative overflow-hidden bg-accent pb-24 pt-24 text-paper md:pb-28 md:pt-32">
       <div className="container-editorial">
         <div className="max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
-            className="text-display-lg font-medium leading-[1.1] text-paper"
+            className="text-[clamp(2.05rem,6vw,5rem)] font-medium leading-[1.15] md:leading-[1.1]"
           >
-            {dict.hero.title}
+            <span className="text-paper/85">{dict.hero.titleLead} </span>
+            <span className="font-semibold text-paper">
+              {dict.hero.titleEmphasis}
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="mt-7 max-w-xl text-xl leading-relaxed text-paper/80 md:text-2xl"
+            className="mt-4 max-w-xl text-base leading-snug text-paper/70 md:mt-7 md:text-xl md:leading-relaxed"
           >
             {dict.hero.subtitle}
           </motion.p>
 
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.32 }}
+            className="mt-8 block h-px w-10 bg-paper/40 md:mt-10"
+            aria-hidden="true"
+          />
+
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 text-base uppercase tracking-[0.14em] text-paper/70"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-5 text-base uppercase tracking-[0.14em] text-paper/70 md:mt-6"
           >
             {dict.hero.serviceLine}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.42 }}
-            className="mt-9"
+            transition={{ duration: 0.6, delay: 0.46 }}
+            className="mt-3"
           >
             <a
               href="#contact"

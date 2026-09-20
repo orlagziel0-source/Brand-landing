@@ -24,7 +24,8 @@ export interface Dictionary {
     talk: string;
   };
   hero: {
-    title: string;
+    titleLead: string;
+    titleEmphasis: string;
     subtitle: string;
     serviceLine: string;
   };
@@ -81,8 +82,8 @@ export const translations: Record<Locale, Dictionary> = {
       talk: "בואו נדבר",
     },
     hero: {
-      title:
-        "חוויית עובד שמחברת בין מה שהעסק רוצה להשיג לבין מה שאנשים באמת צריכים.",
+      titleLead: "חוויית עובד שמחברת בין מה שהעסק רוצה להשיג לבין",
+      titleEmphasis: "מה שאנשים באמת צריכים.",
       subtitle:
         "תכנון, בנייה והוצאה לפועל של תוכניות, תהליכים ופרויקטים לאורך מסע העובד, משלב החשיבה ועד הביצוע.",
       serviceLine: "ייעוץ · פרויקטים · ליווי שוטף",
@@ -164,8 +165,8 @@ export const translations: Record<Locale, Dictionary> = {
       talk: "Let's talk",
     },
     hero: {
-      title:
-        "Employee experience that connects what a business wants to achieve with what people actually need.",
+      titleLead: "Employee experience that connects what a business wants to achieve with",
+      titleEmphasis: "what people actually need.",
       subtitle:
         "Planning, building, and delivering programs, processes, and projects across the employee journey, from first thinking to real execution.",
       serviceLine: "Advisory · Projects · Ongoing partnership",
