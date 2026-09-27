@@ -1,18 +1,14 @@
 "use client";
 
 import { useLanguage } from "@/lib/LanguageContext";
-import { getWhatsAppLink } from "@/lib/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const { dict } = useLanguage();
-  const waLink = getWhatsAppLink(dict.whatsapp.message);
 
   const navItems = [
-    { href: "#work", label: dict.nav.work },
-    { href: "#build", label: dict.nav.build },
+    { href: "#work", label: dict.nav.build },
     { href: "#about", label: dict.nav.about },
-    { href: "#contact", label: dict.nav.contact },
   ];
 
   return (
@@ -44,9 +40,7 @@ export default function Header() {
         <div className="hidden items-center gap-5 md:flex">
           <LanguageSwitcher />
           <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="rounded-full border border-accent px-5 py-2 text-sm text-accent transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-paper"
           >
             {dict.cta.talk}
@@ -76,9 +70,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="shrink-0 whitespace-nowrap rounded-full border border-accent px-4 py-1.5 text-sm text-accent"
           >
             {dict.cta.talk}

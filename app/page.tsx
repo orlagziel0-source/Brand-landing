@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import PointOfView from "@/components/PointOfView";
-import HowWeWork from "@/components/HowWeWork";
 import WhatCanBeBuilt from "@/components/WhatCanBeBuilt";
 import About from "@/components/About";
 import FinalCTA from "@/components/FinalCTA";
@@ -14,7 +13,6 @@ export default function Home() {
       <main id="top" className="scroll-mt-28">
         <Hero />
         <PointOfView />
-        <HowWeWork />
         <WhatCanBeBuilt />
         <About />
         <FinalCTA />

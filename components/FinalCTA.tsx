@@ -13,7 +13,7 @@ export default function FinalCTA() {
   return (
     <section
       id="contact"
-      className="scroll-mt-28 bg-accent py-28 text-paper md:py-40"
+      className="scroll-mt-28 bg-accent py-16 text-paper md:py-40"
     >
       <div className="container-editorial">
         <motion.div

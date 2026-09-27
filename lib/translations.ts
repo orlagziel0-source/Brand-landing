@@ -18,10 +18,8 @@ export interface Dictionary {
   };
   brand: string;
   nav: {
-    work: string;
     build: string;
     about: string;
-    contact: string;
   };
   langSwitch: {
     he: string;
@@ -45,7 +43,7 @@ export interface Dictionary {
     supporting: string;
   };
   work: {
-    title: string;
+    label: string;
     items: WorkItem[];
   };
   build: {
@@ -81,10 +79,8 @@ export const translations: Record<Locale, Dictionary> = {
     },
     brand: "Or Lagziel",
     nav: {
-      work: "How We Work",
-      build: "What We Build",
+      build: "What We Build, Together",
       about: "About",
-      contact: "Contact",
     },
     langSwitch: {
       he: "עברית",
@@ -111,7 +107,7 @@ export const translations: Record<Locale, Dictionary> = {
         "Employee experience is built through the small moments along the way — how people join, how milestones are celebrated, how communication feels, how communities are created, and whether employees feel that someone actually thought about their experience.",
     },
     work: {
-      title: "How we can work together",
+      label: "How we work together",
       items: [
         {
           title: "Project",
@@ -211,10 +207,8 @@ export const translations: Record<Locale, Dictionary> = {
     },
     brand: "אור לגזיאל",
     nav: {
-      work: "איך עובדים יחד",
-      build: "מה אפשר לבנות",
+      build: "מה אפשר לבנות יחד",
       about: "קצת עליי",
-      contact: "יצירת קשר",
     },
     langSwitch: {
       he: "עברית",
@@ -240,7 +234,7 @@ export const translations: Record<Locale, Dictionary> = {
         "חוויית עובד נבנית מהרבה רגעים קטנים לאורך הדרך, איך מצטרפים לחברה, איך מציינים רגעים אישיים, איך מתקשרים, איך בונים קהילה, ואיך גורמים לאנשים להרגיש שיש מחשבה מאחורי הדברים.",
     },
     work: {
-      title: "איך אפשר לעבוד יחד",
+      label: "איך עובדים יחד",
       items: [
         {
           title: "פרויקט",

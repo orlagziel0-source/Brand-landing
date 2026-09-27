@@ -11,7 +11,7 @@ export default function Hero() {
   const waLink = getWhatsAppLink(dict.whatsapp.message);
 
   return (
-    <section className="relative overflow-hidden bg-accent pb-24 pt-24 text-paper md:pb-28 md:pt-32">
+    <section className="relative overflow-hidden bg-accent pb-14 pt-16 text-paper md:pb-28 md:pt-32">
       <div className="container-editorial">
         <div className="max-w-3xl">
           <motion.h1

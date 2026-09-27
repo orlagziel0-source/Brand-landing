@@ -10,7 +10,7 @@ export default function About() {
   const { dict } = useLanguage();
 
   return (
-    <section id="about" className="scroll-mt-28 py-24 md:py-32">
+    <section id="about" className="scroll-mt-28 py-14 md:py-32">
       <div className="container-editorial">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-16 lg:gap-20">
           <motion.div
