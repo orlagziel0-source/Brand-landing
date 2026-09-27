@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const { dict } = useLanguage();
-  const [open, setOpen] = useState(false);
+  const waLink = getWhatsAppLink(dict.whatsapp.message);
 
   const navItems = [
+    { href: "#work", label: dict.nav.work },
     { href: "#build", label: dict.nav.build },
     { href: "#about", label: dict.nav.about },
     { href: "#contact", label: dict.nav.contact },
@@ -16,91 +17,74 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-sm">
-      <div className="container-editorial flex h-[72px] items-center justify-between md:h-[84px]">
+      <div className="container-editorial flex h-[64px] items-center justify-between md:h-[84px]">
         <a
           href="#top"
-          className="text-base font-medium tracking-tight text-ink"
+          className="shrink-0 text-base font-medium tracking-tight text-ink"
         >
           {dict.brand}
         </a>
 
+        {/* Desktop: nav is always inline, never hidden behind a toggle */}
         <nav
-          className="hidden items-center gap-10 md:flex"
+          className="hidden items-center gap-8 md:flex"
           aria-label="Primary"
         >
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-ink/80 transition-colors duration-200 hover:text-ink"
+              className="relative text-sm text-ink/80 transition-colors duration-200 after:absolute after:-bottom-1 after:start-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-200 hover:text-ink hover:after:scale-x-100"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-5 md:flex">
           <LanguageSwitcher />
           <a
-            href="#contact"
-            className="rounded-full border border-accent px-5 py-2 text-sm text-accent transition-colors duration-200 hover:bg-accent hover:text-paper"
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-accent px-5 py-2 text-sm text-accent transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-paper"
           >
             {dict.cta.talk}
           </a>
         </div>
 
-        <button
-          type="button"
-          className="flex h-10 w-10 items-center justify-center md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          <span className="relative block h-4 w-5">
-            <span
-              className={`absolute start-0 top-0 h-[1.5px] w-full bg-ink transition-transform duration-300 ${
-                open ? "translate-y-[7px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`absolute start-0 bottom-0 h-[1.5px] w-full bg-ink transition-transform duration-300 ${
-                open ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
+        {/* Mobile: language switcher stays visible in the top row */}
+        <div className="flex items-center md:hidden">
+          <LanguageSwitcher />
+        </div>
       </div>
 
-      {open && (
-        <div
-          id="mobile-menu"
-          className="border-t border-line bg-paper px-6 pb-8 pt-4 md:hidden"
+      {/* Mobile: a persistent, horizontally scrollable nav strip instead of
+          a hamburger menu, so nothing (including language) is ever hidden. */}
+      <div className="border-t border-line md:hidden">
+        <nav
+          className="container-editorial no-scrollbar flex items-center gap-6 overflow-x-auto py-3"
+          aria-label="Primary mobile"
         >
-          <nav className="flex flex-col gap-5" aria-label="Mobile">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="text-lg text-ink"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="mt-6 flex items-center justify-between border-t border-line pt-6">
-            <LanguageSwitcher />
+          {navItems.map((item) => (
             <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="rounded-full border border-accent px-5 py-2 text-sm text-accent"
+              key={item.href}
+              href={item.href}
+              className="shrink-0 whitespace-nowrap text-sm text-ink/80"
             >
-              {dict.cta.talk}
+              {item.label}
             </a>
-          </div>
-        </div>
-      )}
+          ))}
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 whitespace-nowrap rounded-full border border-accent px-4 py-1.5 text-sm text-accent"
+          >
+            {dict.cta.talk}
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }

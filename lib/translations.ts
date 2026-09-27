@@ -1,9 +1,14 @@
-export type Locale = "he" | "en";
+export type Locale = "en" | "he";
 
-export interface BuildItem {
+export interface WorkItem {
   title: string;
   body: string;
-  outcome: string;
+}
+
+export interface BuildCategory {
+  title: string;
+  body: string;
+  tags: string[];
 }
 
 export interface Dictionary {
@@ -13,6 +18,7 @@ export interface Dictionary {
   };
   brand: string;
   nav: {
+    work: string;
     build: string;
     about: string;
     contact: string;
@@ -24,23 +30,27 @@ export interface Dictionary {
   cta: {
     talk: string;
   };
+  whatsapp: {
+    message: string;
+  };
   hero: {
-    titleLead: string;
-    titleEmphasis: string;
-    subtitle: string;
+    titleLine1: string;
+    titleLine2: string;
+    supporting: string;
+    engagementLine: string;
     serviceLine: string;
   };
   pov: {
     statement: string;
     supporting: string;
   };
+  work: {
+    title: string;
+    items: WorkItem[];
+  };
   build: {
-    eyebrow: string;
-    statementLead: string;
-    statementEmphasis: string;
-    supporting: string;
-    items: BuildItem[];
-    engagementLine: string;
+    title: string;
+    categories: BuildCategory[];
   };
   about: {
     title: string;
@@ -56,9 +66,6 @@ export interface Dictionary {
   finalCta: {
     title: string;
     cta: string;
-    email: string;
-    linkedin: string;
-    linkedinLabel: string;
   };
   footer: {
     rights: string;
@@ -66,15 +73,146 @@ export interface Dictionary {
 }
 
 export const translations: Record<Locale, Dictionary> = {
+  en: {
+    meta: {
+      title: "Or Lagziel, Employee Experience for growing businesses",
+      description:
+        "Flexible Employee Experience support for companies that want to do more for their people — without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
+    },
+    brand: "Or Lagziel",
+    nav: {
+      work: "How We Work",
+      build: "What We Build",
+      about: "About",
+      contact: "Contact",
+    },
+    langSwitch: {
+      he: "עברית",
+      en: "EN",
+    },
+    cta: {
+      talk: "Let's talk",
+    },
+    whatsapp: {
+      message: "Hi Or, I'd love to hear more about your Employee Experience services.",
+    },
+    hero: {
+      titleLine1: "A personal experience for people.",
+      titleLine2: "A smarter model for the business.",
+      supporting:
+        "Flexible Employee Experience support for companies that want to do more for their people — without hiring another full-time role.",
+      engagementLine: "For a project, a defined period, or ongoing support.",
+      serviceLine: "Employee Experience · Community · Culture · Projects",
+    },
+    pov: {
+      statement:
+        "Not every audience is a community, and not every successful event creates a great employee experience.",
+      supporting:
+        "Employee experience is built through the small moments along the way — how people join, how milestones are celebrated, how communication feels, how communities are created, and whether employees feel that someone actually thought about their experience.",
+    },
+    work: {
+      title: "How we can work together",
+      items: [
+        {
+          title: "Project",
+          body: "One focused initiative, one clear need, one goal.",
+        },
+        {
+          title: "Defined Period",
+          body: "Professional support during a busy period, organizational change, or around a specific need.",
+        },
+        {
+          title: "Ongoing Support",
+          body: "Monthly support throughout the year — without adding another full-time role to the team.",
+        },
+      ],
+    },
+    build: {
+      title: "What we build",
+      categories: [
+        {
+          title: "Annual Employee Experience Plan",
+          body: "Building the full-year picture — goals, key moments, budget, activity calendar and forward planning.",
+          tags: [
+            "Annual planning",
+            "Holidays",
+            "Budget",
+            "Employee moments",
+            "Internal communication",
+            "Recurring programs",
+          ],
+        },
+        {
+          title: "Employee Journey & Life Moments",
+          body: "Designing the employee experience across the moments that matter — from day one to personal, family and wellbeing milestones.",
+          tags: [
+            "Onboarding",
+            "Birthdays",
+            "Parental leave",
+            "Weddings",
+            "Wellbeing",
+            "Financial wellbeing",
+            "Family programs",
+          ],
+        },
+        {
+          title: "Employee Communities",
+          body: "Building employee-led communities around shared interests, hobbies and professional topics — so people can find connection inside the workplace too.",
+          tags: [
+            "Running",
+            "Books",
+            "Parents",
+            "Investing",
+            "Professional communities",
+          ],
+        },
+        {
+          title: "Events, Initiatives & Focused Projects",
+          body: "Designing and leading focused initiatives as part of the employee experience — from concept and planning through execution.",
+          tags: [
+            "Holidays",
+            "Events",
+            "Offsites",
+            "Culture initiatives",
+            "Internal launches",
+            "Special projects",
+          ],
+        },
+      ],
+    },
+    about: {
+      title: "Six years in employee experience, inside global companies.",
+      body: [
+        "Over the years I've worked in People Experience, Workplace, Community, Operations, and Project Management roles, touching nearly every point along the employee journey.",
+        "That experience lets me get up to speed quickly, understand what's missing, and connect business needs with the human experience, in a practical, hands-on way.",
+      ],
+      portraitAlt: "Professional portrait",
+      logosLabel: "Experience from",
+      logosAlt: {
+        monday: "monday.com logo",
+        meta: "Meta logo",
+        appsflyer: "AppsFlyer logo",
+      },
+    },
+    finalCta: {
+      title:
+        "Want to build a more precise, connected, and consistent employee experience?",
+      cta: "Let's talk",
+    },
+    footer: {
+      rights: "All rights reserved.",
+    },
+  },
   he: {
     meta: {
-      title: "אור לגזיאל, חוויית עובד שמחברת בין העסק לאנשים",
+      title: "אור לגזיאל · Or Lagziel · People Experience",
       description:
-        "תכנון, בנייה והוצאה לפועל של תוכניות חוויית עובד, קהילות ואירועים בעלי מטרה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
+        "ליווי גמיש בתחום חוויית העובד לעסקים שרוצים לעשות יותר עבור האנשים שלהם, בלי לגייס עוד משרה מלאה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
     },
     brand: "אור לגזיאל",
     nav: {
-      build: "מה אפשר לבנות יחד",
+      work: "איך עובדים יחד",
+      build: "מה אפשר לבנות",
       about: "קצת עליי",
       contact: "יצירת קשר",
     },
@@ -85,48 +223,63 @@ export const translations: Record<Locale, Dictionary> = {
     cta: {
       talk: "בואו נדבר",
     },
+    whatsapp: {
+      message: "היי אור, אשמח לשמוע יותר על השירותים שלך בתחום חוויית העובד.",
+    },
     hero: {
-      titleLead: "חוויית עובד שמחברת בין מה שהעסק רוצה להשיג לבין",
-      titleEmphasis: "מה שאנשים באמת צריכים.",
-      subtitle:
-        "תכנון, בנייה והוצאה לפועל של תוכניות, תהליכים ופרויקטים לאורך מסע העובד, משלב החשיבה ועד הביצוע.",
-      serviceLine: "ייעוץ · פרויקטים · ליווי שוטף",
+      titleLine1: "חוויה אישית לעובדים.",
+      titleLine2: "מודל חכם יותר לעסק.",
+      supporting:
+        "ליווי גמיש בתחום חוויית העובד לעסקים שרוצים לעשות יותר עבור האנשים שלהם, בלי לגייס עוד משרה מלאה.",
+      engagementLine: "לפרויקט, לתקופה מוגדרת, או לליווי שוטף.",
+      serviceLine: "חוויית עובד · קהילה · תרבות · פרויקטים",
     },
     pov: {
       statement: "לא כל קהל הוא קהילה, ולא כל אירוע מוצלח יוצר חוויית עובד.",
       supporting:
         "חוויית עובד נבנית מהרבה רגעים קטנים לאורך הדרך, איך מצטרפים לחברה, איך מציינים רגעים אישיים, איך מתקשרים, איך בונים קהילה, ואיך גורמים לאנשים להרגיש שיש מחשבה מאחורי הדברים.",
     },
-    build: {
-      eyebrow: "מה אפשר לבנות יחד",
-      statementLead: "לא כל ארגון צריך עוד תקן.",
-      statementEmphasis: "כן צריך מישהו שייקח את חוויית העובד קדימה.",
-      supporting:
-        "Employee Experience במודל גמיש — לפרויקט, לתקופה או לליווי שוטף, בלי לגייס משרה מלאה.",
+    work: {
+      title: "איך אפשר לעבוד יחד",
       items: [
         {
-          title: "תוכנית שנתית לחוויית עובד",
-          body: "מטרות, תקציב ולוח שנה אחד ברור לכל השנה.",
-          outcome: "כדי שכל פעולה תדע למה היא קורית.",
+          title: "פרויקט",
+          body: "מהלך אחד, צורך אחד, מטרה ברורה.",
         },
         {
-          title: "מסע העובד, רווחה ומשפחה",
-          body: "מרגע ההצטרפות ועד רגעים אישיים, משפחה ובריאות.",
-          outcome: "כדי שעובדים ירגישו שרואים אותם.",
+          title: "תקופה מוגדרת",
+          body: "חיזוק מקצועי בתקופה עמוסה, בזמן שינוי או סביב צורך מסוים.",
         },
         {
-          title: "קהילות ואירועים עם מטרה",
-          body: "קהילות פנימיות ואירועים שנבנים סביב מטרה אחת ברורה.",
-          outcome: "כדי שהחיבור בין אנשים יהיה אמיתי, לא טכני.",
-        },
-        {
-          title: "פרויקט ממוקד",
-          body: "ריענון מהלך קיים, בניית תחום חדש, או הובלה מקצה לקצה.",
-          outcome: "כדי לזוז מהר, בלי תהליך גיוס ארוך.",
+          title: "ליווי שוטף",
+          body: "שותפות חודשית לאורך השנה, בלי להוסיף משרה מלאה לצוות.",
         },
       ],
-      engagementLine:
-        "אפשר לעבוד בפרויקט נקודתי, בייעוץ, בליווי והוצאה לפועל או בשותפות חודשית לאורך השנה.",
+    },
+    build: {
+      title: "מה אפשר לבנות יחד",
+      categories: [
+        {
+          title: "תוכנית שנתית לחוויית עובד",
+          body: "בניית תמונת השנה, מטרות, עוגנים, תקציב, לוח פעילות ותכנון קדימה.",
+          tags: ["תכנון שנתי", "חגים", "תקציב", "רגעי עובד", "תקשורת פנימית", "תוכניות שוטפות"],
+        },
+        {
+          title: "מסע העובד ורגעים משמעותיים",
+          body: "בניית חוויה לאורך נקודות המגע המשמעותיות של העובד, מהיום הראשון ועד רגעים אישיים, משפחתיים ובריאותיים.",
+          tags: ["אונבורדינג", "ימי הולדת", "חופשת לידה", "חתונות", "וולנס", "משפחות"],
+        },
+        {
+          title: "קהילות עובדים",
+          body: "בניית קהילות לעובדים סביב תחומי עניין, תחביבים ועולמות תוכן, עם העובדים עצמם כמובילי הקהילה.",
+          tags: ["ריצה", "ספרים", "הורים", "השקעות", "קהילות מקצועיות"],
+        },
+        {
+          title: "אירועים, מהלכים ופרויקטים",
+          body: "בניית והובלת מהלכים נקודתיים כחלק מחוויית העובד, מהרעיון והקונספט ועד הביצוע בפועל.",
+          tags: ["חגים", "אירועים", "Offsites", "מהלכי תרבות", "השקות פנימיות", "פרויקטים מיוחדים"],
+        },
+      ],
     },
     about: {
       title: "6 שנים בעולמות חוויית העובד בחברות גלובליות.",
@@ -145,100 +298,9 @@ export const translations: Record<Locale, Dictionary> = {
     finalCta: {
       title: "רוצים לבנות חוויית עובד יותר מדויקת, מחוברת ועקבית?",
       cta: "בואו נדבר",
-      email: "[EMAIL]",
-      linkedin: "[LINKEDIN URL]",
-      linkedinLabel: "לינקדאין",
     },
     footer: {
       rights: "כל הזכויות שמורות.",
-    },
-  },
-  en: {
-    meta: {
-      title: "Or Lagziel, employee experience that connects business and people",
-      description:
-        "Planning, building, and delivering employee experience programs, communities, and purposeful events. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
-    },
-    brand: "Or Lagziel",
-    nav: {
-      build: "What We Can Build Together",
-      about: "About",
-      contact: "Contact",
-    },
-    langSwitch: {
-      he: "עברית",
-      en: "EN",
-    },
-    cta: {
-      talk: "Let's talk",
-    },
-    hero: {
-      titleLead: "Employee experience that connects what a business wants to achieve with",
-      titleEmphasis: "what people actually need.",
-      subtitle:
-        "Planning, building, and delivering programs, processes, and projects across the employee journey, from first thinking to real execution.",
-      serviceLine: "Advisory · Projects · Ongoing partnership",
-    },
-    pov: {
-      statement:
-        "Not every audience is a community, and not every successful event creates an employee experience.",
-      supporting:
-        "Employee experience is built from many small moments along the way, how people join a company, how personal milestones are marked, how things are communicated, how community is built, and how people feel the thought behind it all.",
-    },
-    build: {
-      eyebrow: "What We Can Build Together",
-      statementLead: "Not every organization needs another standard.",
-      statementEmphasis: "It needs someone to take employee experience forward.",
-      supporting:
-        "Employee experience on a flexible model — a project, a defined period, or ongoing support, without hiring a full-time role.",
-      items: [
-        {
-          title: "Annual employee experience plan",
-          body: "Goals, budget, and one clear calendar for the year.",
-          outcome: "So every initiative knows why it exists.",
-        },
-        {
-          title: "Employee journey, wellbeing & family",
-          body: "From onboarding to personal milestones, family, and health.",
-          outcome: "So people feel genuinely seen.",
-        },
-        {
-          title: "Communities & purposeful events",
-          body: "Internal communities and events built around one clear purpose.",
-          outcome: "So connection feels real, not procedural.",
-        },
-        {
-          title: "Focused projects",
-          body: "Refresh an existing initiative, build something new, or lead end to end.",
-          outcome: "So you can move fast, without a long hiring process.",
-        },
-      ],
-      engagementLine:
-        "Work can happen as a single project, advisory support, hands-on delivery, or an ongoing monthly partnership throughout the year.",
-    },
-    about: {
-      title: "Six years in employee experience, inside global companies.",
-      body: [
-        "Over the years I've worked in People Experience, Workplace, Community, Operations, and Project Management roles, touching nearly every point along the employee journey.",
-        "That experience lets me get up to speed quickly, understand what's missing, and connect business needs with the human experience, in a practical, hands-on way.",
-      ],
-      portraitAlt: "Professional portrait",
-      logosLabel: "Experience from",
-      logosAlt: {
-        monday: "monday.com logo",
-        meta: "Meta logo",
-        appsflyer: "AppsFlyer logo",
-      },
-    },
-    finalCta: {
-      title: "Want to build a more precise, connected, and consistent employee experience?",
-      cta: "Let's talk",
-      email: "[EMAIL]",
-      linkedin: "[LINKEDIN URL]",
-      linkedinLabel: "LinkedIn",
-    },
-    footer: {
-      rights: "All rights reserved.",
     },
   },
 };

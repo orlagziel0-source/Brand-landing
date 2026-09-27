@@ -17,7 +17,7 @@ export default function PointOfView() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease }}
-            className="text-display-lg font-medium leading-[1.08] text-ink"
+            className="text-display-lg font-bold leading-[1.08] text-ink"
           >
             {dict.pov.statement}
           </motion.p>
@@ -29,10 +29,11 @@ export default function PointOfView() {
             transition={{ duration: 0.7, delay: 0.15, ease }}
             className="mt-10 md:mt-14"
           >
-            <span
-              className="mb-4 block h-px w-14 bg-accent"
-              aria-hidden="true"
-            />
+            <span className="mb-4 flex h-1 w-20 gap-1" aria-hidden="true">
+              <span className="flex-1 rounded-full bg-accent" />
+              <span className="flex-1 rounded-full bg-pine" />
+              <span className="flex-1 rounded-full bg-ochre" />
+            </span>
             <p className="max-w-2xl text-xl leading-relaxed text-stone md:text-2xl">
               {dict.pov.supporting}
             </p>

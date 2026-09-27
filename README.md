@@ -1,8 +1,8 @@
-# [BRAND NAME] — bilingual landing page
+# Or Lagziel — bilingual landing page
 
 A premium, editorial one-page site (Next.js 14 · React 18 · TypeScript ·
-Tailwind CSS · Framer Motion), fully bilingual in Hebrew (default, RTL) and
-English (LTR).
+Tailwind CSS · Framer Motion) for an independent Employee Experience
+business, fully bilingual in English (default, LTR) and Hebrew (RTL).
 
 ## Getting started
 
@@ -20,86 +20,74 @@ npm run build
 npm run start
 ```
 
-## Design direction (what was decided, and why)
+## Design direction
 
-- **Palette** — warm off-white (`paper`), near-black charcoal (`ink`), a
-  neutral stone gray, and a single accent: a deep, desaturated burgundy
-  (`accent`, `#7A2333`). Dark enough to stay sharp and editorial rather than
-  soft or feminine, and restrained enough to use as the *only* color note
-  against the neutrals.
-- **Typography** — Manrope for Latin text, Heebo for Hebrew (both modern,
-  high-quality, well-supported in Google Fonts, and close enough in
-  character that the two language versions feel like one brand). Only
-  three weights are used anywhere: 400 (body), 500 (labels/kickers), 700
-  (headlines). Headlines lean large and tight; body copy stays comfortable
-  and restrained.
-- **Layout** — an editorial split hero (portrait vs. copy, grid-based so it
-  mirrors automatically between RTL/LTR), oversized typographic statements
-  for the point-of-view section, numbered stacked blocks (not cards) for
-  "Where I Can Help," and thin single-pixel dividers instead of boxes or
-  shadows throughout. No rounded cards, no icon grid, no gradients.
-- **Motion** — subtle scroll-reveals (fade + small upward shift) via Framer
-  Motion, plus a gentle scale-in on the portrait. Nothing bounces, nothing
-  parallaxes.
+- **Palette** — warm cream (`paper`), near-black charcoal (`ink`), a
+  contrast-checked warm stone gray for secondary text, and a single
+  accent: a deep, desaturated burgundy (`accent`, `#7A2333`).
+- **Typography** — Manrope for Latin text, Heebo for Hebrew.
+- **Layout** — editorial, thin dividers instead of shadows, minimal
+  bordered cards only where they genuinely help scanning (services,
+  build categories); no heavy cards, no icon grid, no gradients.
+- **Motion** — subtle scroll-reveals via Framer Motion.
 
 ## Language system
 
 - All copy lives in `lib/translations.ts`, typed against a single
-  `Dictionary` interface so Hebrew and English can never drift out of
+  `Dictionary` interface so English and Hebrew can never drift out of
   structural sync.
 - `lib/LanguageContext.tsx` provides `useLanguage()` (`locale`, `dict`,
   `dir`, `setLocale`, `toggleLocale`) to every component.
-- Hebrew is the default and renders server-side. A tiny inline script in
-  `app/layout.tsx` sets `dir`/`lang` on `<html>` from `localStorage` before
-  React hydrates, so a returning visitor who chose English doesn't see an
-  RTL flash. The chosen language persists across refreshes via
-  `localStorage`.
-- RTL/LTR spacing is handled with Tailwind's logical-property utilities
-  (`ps-*`, `pe-*`, `border-e`, `start-*`, …) wherever a layout is
-  asymmetric, so both directions mirror correctly without duplicated CSS.
+- **English is the default** and renders server-side. A tiny inline
+  script in `app/layout.tsx` sets `dir`/`lang` on `<html>` from
+  `localStorage` before React hydrates, so a returning visitor who chose
+  Hebrew doesn't see an LTR flash. The chosen language persists across
+  refreshes via `localStorage`.
+- The language switcher (`EN | עברית`) is always visible in the header,
+  on both desktop and mobile — there is no hamburger menu on this site;
+  mobile navigation is a persistent, horizontally-scrollable strip.
 
-## Placeholders to replace
+## WhatsApp CTA
 
-| Placeholder | Where | Notes |
-|---|---|---|
-| `[BRAND NAME]` | `lib/translations.ts` (`brand`, `meta.title`, `meta.description`), `app/layout.tsx` metadata | Search-and-replace once the name is final. |
-| Portrait | `public/portrait/` | See `public/portrait/README.md`. Swap the placeholder block in `components/Hero.tsx` for a real `next/image`. |
-| Company logos | `public/logos/` | See `public/logos/README.md`. `components/Logos.tsx` currently renders clean typographic placeholders instead of the official marks. |
-| `[EMAIL]` | `lib/translations.ts` (`finalCta.email`, both languages) | Also used as the `mailto:` link target. |
-| `[LINKEDIN URL]` | `lib/translations.ts` (`finalCta.linkedin`, both languages) | Full URL, e.g. `https://linkedin.com/in/...`. |
+Every "Let's talk" / "בואו נדבר" button opens WhatsApp directly via
+`lib/whatsapp.ts`, which builds a `wa.me` link with a language-specific
+pre-filled message from `dict.whatsapp.message`. The phone number lives
+in one place: `WHATSAPP_NUMBER` in `lib/whatsapp.ts`.
 
 ## Project structure
 
 ```
 app/
-  layout.tsx        fonts, metadata, language-init script
-  page.tsx           assembles all sections
+  layout.tsx           fonts, metadata, language-init script
+  page.tsx              assembles all sections
   globals.css
 lib/
-  translations.ts    all HE/EN copy, one typed dictionary
-  LanguageContext.tsx language state, persistence, dir/lang sync
+  translations.ts       all EN/HE copy, one typed dictionary
+  LanguageContext.tsx    language state, persistence, dir/lang sync
+  whatsapp.ts            WhatsApp link builder
 components/
   Header.tsx, LanguageSwitcher.tsx
-  Hero.tsx, Logos.tsx
+  Hero.tsx
   PointOfView.tsx
-  WhereICanHelp.tsx
-  WhoIWorkWith.tsx
-  About.tsx
-  HowWeWork.tsx
+  HowWeWork.tsx          "How we can work together" (project / period / ongoing)
+  WhatCanBeBuilt.tsx     four service categories with tag chips
+  About.tsx, Logos.tsx
   FinalCTA.tsx
   Footer.tsx
+  WhereICanHelp.tsx, WhoIWorkWith.tsx   deprecated stubs kept only so
+    they safely overwrite old copies during manual file syncs — safe to
+    delete once no longer needed.
 public/
-  portrait/, logos/  asset drop-in points (see their README files)
+  portrait/, logos/     real assets already in place
 ```
 
 ## Notes / known simplifications
 
-- This is a single-route, client-toggled bilingual page (as briefed), so
-  SEO metadata is rendered once for the default language. If per-language
-  URLs are introduced later, move metadata into `generateMetadata` and add
-  `hreflang` alternates.
-- Accessibility: semantic landmarks (`header`, `main`, `footer`), one `h1`
-  in the hero, logical heading order (`h1` → `h2` per section → `h3` for
-  help items), visible focus states, `alt`/`aria-label` text on the
-  portrait and logo placeholders, and a keyboard-operable language
-  switcher and mobile menu.
+- This is a single-route, client-toggled bilingual page, so SEO
+  metadata is rendered once for the default language. If per-language
+  URLs are introduced later, move metadata into `generateMetadata` and
+  add `hreflang` alternates.
+- Accessibility: semantic landmarks (`header`, `main`, `footer`), one
+  `h1` in the hero, logical heading order, visible focus states, `alt`
+  text on the portrait and logos, and a fully keyboard-operable,
+  always-visible navigation and language switcher.

@@ -25,11 +25,11 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Server always renders Hebrew (the default). A blocking inline script in
+  // Server always renders English (the default). A blocking inline script in
   // <head> (see app/layout.tsx) sets the real dir/lang on <html> before
   // paint, so there is no layout flash. Here we sync the React copy to
   // whatever the visitor last chose, right after mount.
-  const [locale, setLocaleState] = useState<Locale>("he");
+  const [locale, setLocaleState] = useState<Locale>("en");
 
   useEffect(() => {
     try {
@@ -54,7 +54,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLocale = (next: Locale) => setLocaleState(next);
   const toggleLocale = () =>
-    setLocaleState((prev) => (prev === "he" ? "en" : "he"));
+    setLocaleState((prev) => (prev === "en" ? "he" : "en"));
 
   const value = useMemo<LanguageContextValue>(
     () => ({

@@ -33,7 +33,7 @@ export default function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1, ease }}
           >
-            <h2 className="text-display-md font-medium leading-tight text-ink">
+            <h2 className="text-display-md font-bold leading-tight text-ink">
               {dict.about.title}
             </h2>
 

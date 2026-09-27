@@ -18,25 +18,25 @@ const heebo = Heebo({
 });
 
 // NOTE on SEO: the page is a single client-toggled bilingual route (per the
-// brief), so metadata is rendered once, for the default language (Hebrew).
-// If per-language URLs are ever introduced (e.g. /en), move this into
+// brief), so metadata is rendered once, for the default language (English).
+// If per-language URLs are ever introduced (e.g. /he), move this into
 // generateMetadata keyed off the route and add hreflang alternates.
 export const metadata: Metadata = {
   metadataBase: new URL("https://brand-landing-flax.vercel.app"),
-  title: "אור לגזיאל · Or Lagziel · People Experience",
+  title: "Or Lagziel · אור לגזיאל · People Experience",
   description:
-    "תכנון, בנייה והוצאה לפועל של תוכניות חוויית עובד, קהילות ואירועים בעלי מטרה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
+    "Flexible Employee Experience support for companies that want to do more for their people, without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
   openGraph: {
-    title: "אור לגזיאל · Or Lagziel · People Experience",
+    title: "Or Lagziel · אור לגזיאל · People Experience",
     description:
-      "תכנון, בנייה והוצאה לפועל של תוכניות חוויית עובד, קהילות ואירועים בעלי מטרה. שש שנים של ניסיון בחברות טכנולוגיה גלובליות כמו monday.com, Meta ו-AppsFlyer.",
+      "Flexible Employee Experience support for companies that want to do more for their people, without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
     type: "website",
-    locale: "he_IL",
-    alternateLocale: "en_US",
+    locale: "en_US",
+    alternateLocale: "he_IL",
   },
   twitter: {
     card: "summary_large_image",
-    title: "אור לגזיאל · Or Lagziel · People Experience",
+    title: "Or Lagziel · אור לגזיאל · People Experience",
     description:
       "Employee experience that connects business and people.",
   },
@@ -49,12 +49,12 @@ const themeInitScript = `
 (function () {
   try {
     var stored = window.localStorage.getItem("site-locale");
-    var locale = stored === "en" ? "en" : "he";
+    var locale = stored === "he" ? "he" : "en";
     document.documentElement.lang = locale;
     document.documentElement.dir = locale === "he" ? "rtl" : "ltr";
   } catch (e) {
-    document.documentElement.lang = "he";
-    document.documentElement.dir = "rtl";
+    document.documentElement.lang = "en";
+    document.documentElement.dir = "ltr";
   }
 })();
 `;
@@ -66,8 +66,8 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="he"
-      dir="rtl"
+      lang="en"
+      dir="ltr"
       suppressHydrationWarning
       className={`${manrope.variable} ${heebo.variable}`}
     >
