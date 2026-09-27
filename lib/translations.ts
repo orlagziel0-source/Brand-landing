@@ -45,6 +45,8 @@ export interface Dictionary {
   gallery: {
     label: string;
     alt: string;
+    prev: string;
+    next: string;
   };
   work: {
     label: string;
@@ -113,6 +115,8 @@ export const translations: Record<Locale, Dictionary> = {
     gallery: {
       label: "Events and initiatives",
       alt: "Photo from an employee experience event",
+      prev: "Previous photo",
+      next: "Next photo",
     },
     work: {
       label: "How we work together",
@@ -244,6 +248,8 @@ export const translations: Record<Locale, Dictionary> = {
     gallery: {
       label: "אירועים ומהלכים",
       alt: "תמונה מאירוע חוויית עובד",
+      prev: "התמונה הקודמת",
+      next: "התמונה הבאה",
     },
     work: {
       label: "איך עובדים יחד",
