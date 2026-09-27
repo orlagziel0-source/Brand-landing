@@ -42,6 +42,10 @@ export interface Dictionary {
     statement: string;
     supporting: string;
   };
+  gallery: {
+    label: string;
+    alt: string;
+  };
   work: {
     label: string;
     items: WorkItem[];
@@ -105,6 +109,10 @@ export const translations: Record<Locale, Dictionary> = {
         "Not every audience is a community, and not every successful event creates a great employee experience.",
       supporting:
         "Employee experience is built through the small moments along the way — how people join, how milestones are celebrated, how communication feels, how communities are created, and whether employees feel that someone actually thought about their experience.",
+    },
+    gallery: {
+      label: "Events and initiatives",
+      alt: "Photo from an employee experience event",
     },
     work: {
       label: "How we work together",
@@ -232,6 +240,10 @@ export const translations: Record<Locale, Dictionary> = {
       statement: "לא כל קהל הוא קהילה, ולא כל אירוע מוצלח יוצר חוויית עובד.",
       supporting:
         "חוויית עובד נבנית מהרבה רגעים קטנים לאורך הדרך, איך מצטרפים לחברה, איך מציינים רגעים אישיים, איך מתקשרים, איך בונים קהילה, ואיך גורמים לאנשים להרגיש שיש מחשבה מאחורי הדברים.",
+    },
+    gallery: {
+      label: "אירועים ומהלכים",
+      alt: "תמונה מאירוע חוויית עובד",
     },
     work: {
       label: "איך עובדים יחד",

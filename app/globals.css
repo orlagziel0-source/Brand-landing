@@ -71,3 +71,34 @@ button:focus-visible,
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Events marquee: the track holds two identical copies of the image set
+   back to back; sliding it left by exactly the width of one copy loops
+   seamlessly forever. --marquee-distance is set in JS to that exact pixel
+   width (more reliable across browsers than a bare -50%, which depends on
+   the element's own box being sized purely by its content). The -50%
+   fallback only matters for the instant before JS measures it. Direction
+   is purely decorative, so it always slides left regardless of the page's
+   text direction (LTR or RTL). */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--marquee-distance, -50%));
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 42s linear infinite;
+}
+
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

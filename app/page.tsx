@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import EventsMarquee from "@/components/EventsMarquee";
 import PointOfView from "@/components/PointOfView";
 import WhatCanBeBuilt from "@/components/WhatCanBeBuilt";
 import About from "@/components/About";
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <main id="top" className="scroll-mt-28">
         <Hero />
+        <EventsMarquee />
         <PointOfView />
         <WhatCanBeBuilt />
         <About />
