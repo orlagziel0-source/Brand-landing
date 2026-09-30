@@ -52,7 +52,7 @@ export default function About() {
               <p className="mb-5 text-sm uppercase tracking-[0.14em] text-stone">
                 {dict.about.logosLabel}
               </p>
-              <div className="flex flex-wrap items-center gap-x-12 gap-y-5">
+              <div className="flex max-w-[500px] flex-nowrap items-center justify-between gap-3">
                 <MondayLogo alt={dict.about.logosAlt.monday} />
                 <MetaLogo alt={dict.about.logosAlt.meta} />
                 <AppsFlyerLogo alt={dict.about.logosAlt.appsflyer} />

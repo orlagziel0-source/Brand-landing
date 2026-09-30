@@ -1,5 +1,7 @@
 export type Locale = "en" | "he";
 
+export type Photographer = "victor" | "tomer";
+
 export interface WorkItem {
   title: string;
   body: string;
@@ -47,6 +49,8 @@ export interface Dictionary {
     alt: string;
     prev: string;
     next: string;
+    photoBy: string;
+    photographers: Record<Photographer, string>;
   };
   work: {
     label: string;
@@ -117,6 +121,8 @@ export const translations: Record<Locale, Dictionary> = {
       alt: "Photo from an employee experience event",
       prev: "Previous photo",
       next: "Next photo",
+      photoBy: "Photo: ",
+      photographers: { victor: "Victor Levy", tomer: "Tomer Foltyn" },
     },
     work: {
       label: "How we work together",
@@ -250,6 +256,8 @@ export const translations: Record<Locale, Dictionary> = {
       alt: "תמונה מאירוע חוויית עובד",
       prev: "התמונה הקודמת",
       next: "התמונה הבאה",
+      photoBy: "צילום: ",
+      photographers: { victor: "ויקטור לוי", tomer: "תומר פולטין" },
     },
     work: {
       label: "איך עובדים יחד",

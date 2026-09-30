@@ -2,12 +2,21 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
+import type { Photographer } from "@/lib/translations";
 
-const IMAGE_COUNT = 10;
+const IMAGE_COUNT = 18;
 const images = Array.from(
   { length: IMAGE_COUNT },
   (_, i) => `/images/gallery/event-${String(i + 1).padStart(2, "0")}.jpg`
 );
+
+// Photographer credit per photo, in the same order as the images above
+// (event-01 … event-18). null = own photo, no credit shown.
+const credits: (Photographer | null)[] = [
+  null, "victor", null, null, "tomer", "victor",
+  "tomer", null, "tomer", null, null, null,
+  null, null, null, "victor", null, null,
+];
 
 const SPEED_PX_PER_SEC = 55;
 const RESUME_DELAY_MS = 2500;
@@ -153,7 +162,7 @@ export default function EventsMarquee() {
         {track.map((src, i) => (
           <div
             key={i}
-            className="h-36 w-[220px] shrink-0 overflow-hidden rounded-md sm:h-44 sm:w-[280px] md:h-56 md:w-[360px]"
+            className="relative h-36 w-[220px] shrink-0 overflow-hidden rounded-md sm:h-44 sm:w-[280px] md:h-56 md:w-[360px]"
             aria-hidden={i >= IMAGE_COUNT}
           >
             <img
@@ -162,6 +171,15 @@ export default function EventsMarquee() {
               className="h-full w-full object-cover"
               loading={i < IMAGE_COUNT ? "eager" : "lazy"}
             />
+            {credits[i % IMAGE_COUNT] && (
+              <span
+                dir="auto"
+                className="pointer-events-none absolute bottom-2 right-2 whitespace-nowrap rounded-full bg-ink/55 px-2 py-0.5 text-[0.68rem] leading-snug text-paper"
+              >
+                {dict.gallery.photoBy}
+                {dict.gallery.photographers[credits[i % IMAGE_COUNT] as Photographer]}
+              </span>
+            )}
           </div>
         ))}
       </div>
