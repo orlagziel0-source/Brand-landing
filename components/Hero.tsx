@@ -43,6 +43,15 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.24, ease }}
             className="mt-3 max-w-xl text-base leading-relaxed text-paper/65 md:text-lg"
           >
+            {dict.hero.teamLine}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.28, ease }}
+            className="mt-0.5 max-w-xl text-base leading-relaxed text-paper/65 md:text-lg"
+          >
             {dict.hero.engagementLine}
           </motion.p>
 

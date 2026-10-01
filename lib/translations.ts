@@ -37,6 +37,7 @@ export interface Dictionary {
     titleLine1: string;
     titleLine2: string;
     supporting: string;
+    teamLine: string;
     engagementLine: string;
     serviceLine: string;
   };
@@ -106,7 +107,8 @@ export const translations: Record<Locale, Dictionary> = {
       titleLine1: "A personal experience for people.",
       titleLine2: "A smarter model for the business.",
       supporting:
-        "Flexible Employee Experience support for companies that want to do more for their people — without hiring another full-time role.",
+        "Flexible Employee Experience support for companies that want to do more for their people.",
+      teamLine: "Alongside an existing team, or where no one leads the area yet.",
       engagementLine: "For a project, a defined period, or ongoing support.",
       serviceLine: "Employee Experience · Community · Culture · Projects",
     },
@@ -242,7 +244,8 @@ export const translations: Record<Locale, Dictionary> = {
       titleLine1: "חוויה אישית לעובדים.",
       titleLine2: "מודל חכם יותר לעסק.",
       supporting:
-        "ליווי גמיש בתחום חוויית העובד לעסקים שרוצים לעשות יותר עבור האנשים שלהם, בלי לגייס עוד משרה מלאה.",
+        "ליווי גמיש בתחום חוויית העובד לעסקים שרוצים לעשות יותר עבור האנשים שלהם.",
+      teamLine: "כתוספת לצוות קיים, או במקום שעוד אין בו מישהו שמוביל את התחום.",
       engagementLine: "לפרויקט, לתקופה מוגדרת, או לליווי שוטף.",
       serviceLine: "חוויית עובד · קהילה · תרבות · פרויקטים",
     },
