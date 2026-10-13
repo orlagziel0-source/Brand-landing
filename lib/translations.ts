@@ -104,11 +104,10 @@ export const translations: Record<Locale, Dictionary> = {
       message: "Hi Or, I'd love to hear more about your Employee Experience services.",
     },
     hero: {
-      titleLine1: "A personal experience for people.",
-      titleLine2: "A smarter model for the business.",
-      supporting:
-        "Flexible Employee Experience support for companies that want to do more for their people.",
-      teamLine: "Alongside an existing team, or where no one leads the area yet.",
+      titleLine1: "Employee experience, start to finish.",
+      titleLine2: "Planned, produced and delivered.",
+      supporting: "From day one to life's meaningful moments.",
+      teamLine: "Flexible support for companies that want to do more for their people.",
       engagementLine: "For a project, a defined period, or ongoing support.",
       serviceLine: "Employee Experience · Community · Culture · Projects",
     },
@@ -183,8 +182,8 @@ export const translations: Record<Locale, Dictionary> = {
           ],
         },
         {
-          title: "Events, Initiatives & Focused Projects",
-          body: "Designing and leading focused initiatives as part of the employee experience — from concept and planning through execution.",
+          title: "Events & Focused Projects",
+          body: "Designing and leading events and focused projects as part of the employee experience — from concept and planning through execution.",
           tags: [
             "Holidays",
             "Events",
@@ -199,7 +198,7 @@ export const translations: Record<Locale, Dictionary> = {
     about: {
       title: "Six years in employee experience, inside global companies.",
       body: [
-        "Over the years I've worked in People Experience, Workplace, Community, Operations, and Project Management roles, touching nearly every point along the employee journey.",
+        "Over the years I've worked in People Experience, Workplace, Community, Operations, and Project Management roles, touching every point along the employee journey.",
         "That experience lets me get up to speed quickly, understand what's missing, and connect business needs with the human experience, in a practical, hands-on way.",
       ],
       portraitAlt: "Professional portrait",
@@ -241,11 +240,10 @@ export const translations: Record<Locale, Dictionary> = {
       message: "היי אור :) אשמח לשמוע יותר על השירות ולבדוק איך אפשר לעבוד יחד ולקדם את חוויית העובד אצלנו 🙌",
     },
     hero: {
-      titleLine1: "חוויה אישית לעובדים.",
-      titleLine2: "מודל חכם יותר לעסק.",
-      supporting:
-        "ליווי גמיש בתחום חוויית העובד לעסקים שרוצים לעשות יותר עבור האנשים שלהם.",
-      teamLine: "כתוספת לצוות קיים, או במקום שעוד אין בו מישהו שמוביל את התחום.",
+      titleLine1: "חוויית עובד מקצה לקצה.",
+      titleLine2: "תכנון, הפקה וביצוע.",
+      supporting: "מהיום הראשון ועד הרגעים המשמעותיים של החיים.",
+      teamLine: "ליווי גמיש לעסקים שרוצים לעשות יותר עבור האנשים שלהם.",
       engagementLine: "לפרויקט, לתקופה מוגדרת, או לליווי שוטף.",
       serviceLine: "חוויית עובד · קהילה · תרבות · פרויקטים",
     },
@@ -255,7 +253,7 @@ export const translations: Record<Locale, Dictionary> = {
         "חוויית עובד נבנית מהרבה רגעים קטנים לאורך הדרך, איך מצטרפים לחברה, איך מציינים רגעים אישיים, איך מתקשרים, איך בונים קהילה, ואיך גורמים לאנשים להרגיש שיש מחשבה מאחורי הדברים.",
     },
     gallery: {
-      label: "אירועים ומהלכים",
+      label: "אירועים ופרויקטים",
       alt: "תמונה מאירוע חוויית עובד",
       prev: "התמונה הקודמת",
       next: "התמונה הבאה",
@@ -298,16 +296,16 @@ export const translations: Record<Locale, Dictionary> = {
           tags: ["ריצה", "ספרים", "הורים", "השקעות", "קהילות מקצועיות"],
         },
         {
-          title: "אירועים, מהלכים ופרויקטים",
-          body: "בניית והובלת מהלכים נקודתיים כחלק מחוויית העובד, מהרעיון והקונספט ועד הביצוע בפועל.",
-          tags: ["חגים", "אירועים", "Offsites", "מהלכי תרבות", "השקות פנימיות", "פרויקטים מיוחדים"],
+          title: "אירועים ופרויקטים",
+          body: "תכנון והובלה של אירועים ופרויקטים ממוקדים כחלק מחוויית העובד, מהרעיון והקונספט ועד הביצוע בפועל.",
+          tags: ["חגים", "אירועים", "Offsites", "יוזמות תרבות", "השקות פנימיות", "פרויקטים מיוחדים"],
         },
       ],
     },
     about: {
       title: "6 שנים בעולמות חוויית העובד בחברות גלובליות.",
       body: [
-        "במהלך השנים עבדתי בתפקידי People Experience, Workplace, Community, Operations ו-Project Management, ונגעתי כמעט בכל נקודה במסע העובד.",
+        "במהלך השנים עבדתי בתפקידי People Experience, Workplace, Community, Operations ו-Project Management, ונגעתי בכל נקודה במסע העובד.",
         "הניסיון הזה מאפשר לי להיכנס מהר, להבין מה חסר, ולחבר בין הצרכים של העסק לבין החוויה של האנשים, בצורה פרקטית וישימה.",
       ],
       portraitAlt: "תמונת פורטרט מקצועית",

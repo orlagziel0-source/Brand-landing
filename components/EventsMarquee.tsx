@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 import type { Photographer } from "@/lib/translations";
+import { projectForPhoto, projectsCopy, projectsData } from "@/lib/projects";
+import ProjectModal from "./ProjectModal";
 
 const IMAGE_COUNT = 18;
 const images = Array.from(
@@ -54,7 +56,12 @@ function ChevronRight({ className }: { className?: string }) {
 }
 
 export default function EventsMarquee() {
-  const { dict } = useLanguage();
+  const { dict, locale } = useLanguage();
+  const [openProject, setOpenProject] = useState<string | null>(null);
+  const modalOpenRef = useRef(false);
+  modalOpenRef.current = openProject !== null;
+  const closeProject = useCallback(() => setOpenProject(null), []);
+  const copy = projectsCopy(locale);
   const trackRef = useRef<HTMLDivElement>(null);
 
   // Duplicate the set back-to-back so wrapping the offset by exactly the
@@ -99,7 +106,8 @@ export default function EventsMarquee() {
       const paused =
         reducedMotionRef.current ||
         hoverPausedRef.current ||
-        manualPausedRef.current;
+        manualPausedRef.current ||
+        modalOpenRef.current;
 
       if (!paused && half > 0) {
         offsetRef.current -= SPEED_PX_PER_SEC * dt;
@@ -144,10 +152,11 @@ export default function EventsMarquee() {
     // already off-screen before any motion even started). The photos have
     // no reading direction of their own, so pinning this one region to LTR
     // is safe and keeps the belt's math simple in both languages.
+    <>
     <section
       dir="ltr"
       aria-label={dict.gallery.label}
-      className="relative overflow-hidden border-y border-line bg-paper py-5 md:py-7"
+      className="relative overflow-hidden border-y border-line bg-paper py-[clamp(12px,2vh,20px)] md:py-[clamp(14px,2.4vh,24px)]"
       onMouseEnter={() => {
         hoverPausedRef.current = true;
       }}
@@ -160,27 +169,54 @@ export default function EventsMarquee() {
         className="flex w-max gap-3 will-change-transform md:gap-4"
       >
         {track.map((src, i) => (
+          (() => {
+            const photo = i % IMAGE_COUNT;
+            const projectKey = projectForPhoto(photo);
+            const pos = projectsData.plusPos[String(photo)];
+            const plusPos = pos === "bl" ? "bottom-2.5 left-2.5" : pos === "tr" ? "right-2.5 top-2.5" : "left-2.5 top-2.5";
+            const open = () => projectKey && setOpenProject(projectKey);
+            return (
           <div
             key={i}
-            className="relative h-36 w-[220px] shrink-0 overflow-hidden rounded-md sm:h-44 sm:w-[280px] md:h-56 md:w-[360px]"
+            role={projectKey ? "button" : undefined}
+            tabIndex={projectKey && i < IMAGE_COUNT ? 0 : -1}
+            aria-label={projectKey ? copy.projects[projectKey]?.name : undefined}
+            onClick={open}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                open();
+              }
+            }}
+            className={`group relative aspect-[1.6] h-[clamp(110px,19vh,200px)] shrink-0 overflow-hidden rounded-md focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-accent md:h-[clamp(130px,21vh,220px)] ${projectKey ? "cursor-pointer" : ""}`}
             aria-hidden={i >= IMAGE_COUNT}
           >
             <img
               src={src}
               alt={`${dict.gallery.alt} ${(i % IMAGE_COUNT) + 1}`}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-[400ms] group-hover:scale-[1.04]"
               loading={i < IMAGE_COUNT ? "eager" : "lazy"}
             />
+            {projectKey && (
+              <span
+                aria-hidden="true"
+                className={`pointer-events-none absolute z-[1] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[rgba(247,244,238,0.88)] text-xl leading-none text-accent shadow-[0_2px_8px_rgba(0,0,0,0.2)] transition-all duration-[250ms] group-hover:rotate-90 group-hover:bg-accent group-hover:text-paper ${plusPos}`}
+              >
+                +
+              </span>
+            )}
             {credits[i % IMAGE_COUNT] && (
               <span
                 dir="auto"
-                className="pointer-events-none absolute bottom-2 right-2 whitespace-nowrap rounded-full bg-ink/55 px-2 py-0.5 text-[0.68rem] leading-snug text-paper"
+                className="pointer-events-none absolute bottom-2 right-2 whitespace-nowrap rounded-full bg-ink/55 px-2 py-0.5 text-[0.68rem] leading-snug text-paper transition-opacity group-hover:opacity-0"
               >
                 {dict.gallery.photoBy}
                 {dict.gallery.photographers[credits[i % IMAGE_COUNT] as Photographer]}
               </span>
             )}
           </div>
+            );
+          })()
         ))}
       </div>
 
@@ -201,5 +237,8 @@ export default function EventsMarquee() {
         <ChevronRight className="h-5 w-5" />
       </button>
     </section>
+    <p className="container-editorial mt-2.5 text-center text-[0.85rem] text-stone">{copy.strip}</p>
+    <ProjectModal projectKey={openProject} onChange={setOpenProject} onClose={closeProject} />
+    </>
   );
 }

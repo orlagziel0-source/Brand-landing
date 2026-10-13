@@ -4,6 +4,7 @@ import EventsMarquee from "@/components/EventsMarquee";
 import PointOfView from "@/components/PointOfView";
 import WhatCanBeBuilt from "@/components/WhatCanBeBuilt";
 import About from "@/components/About";
+import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -17,6 +18,7 @@ export default function Home() {
         <PointOfView />
         <WhatCanBeBuilt />
         <About />
+        <Testimonials />
         <FinalCTA />
       </main>
       <Footer />

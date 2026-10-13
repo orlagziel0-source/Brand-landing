@@ -86,25 +86,25 @@ const CATEGORY_STYLES = [
     numeral: "text-accent/25",
     border: "border-accent",
     badge: "bg-accent/10 text-accent",
-    tag: "border-accent/30 bg-accent/5 text-accent",
+    tag: "text-accent",
   },
   {
     numeral: "text-pine/25",
     border: "border-pine",
     badge: "bg-pine/10 text-pine",
-    tag: "border-pine/30 bg-pine/5 text-pine",
+    tag: "text-pine",
   },
   {
     numeral: "text-ochre/25",
     border: "border-ochre",
     badge: "bg-ochre/10 text-ochre",
-    tag: "border-ochre/30 bg-ochre/5 text-ochre",
+    tag: "text-ochre",
   },
   {
     numeral: "text-denim/25",
     border: "border-denim",
     badge: "bg-denim/10 text-denim",
-    tag: "border-denim/30 bg-denim/5 text-denim",
+    tag: "text-denim",
   },
 ];
 
@@ -157,16 +157,15 @@ export default function WhatCanBeBuilt() {
                 <p className="relative mt-2 max-w-[85%] text-sm leading-relaxed text-stone md:text-base">
                   {category.body}
                 </p>
-                <div className="relative mt-4 flex flex-wrap gap-2">
-                  {category.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className={`rounded-full border px-3 py-1 text-xs font-medium transition-transform duration-150 hover:scale-105 ${style.tag}`}
-                    >
+                {/* Topics as a quiet inline list, so they don't read as buttons */}
+                <p className={`relative mt-4 flex flex-wrap gap-y-1 text-sm font-medium leading-relaxed ${style.tag}`}>
+                  {category.tags.map((tag, t) => (
+                    <span key={tag}>
+                      {t > 0 && <span className="mx-2 opacity-60" aria-hidden="true">·</span>}
                       {tag}
                     </span>
                   ))}
-                </div>
+                </p>
               </motion.div>
             );
           })}

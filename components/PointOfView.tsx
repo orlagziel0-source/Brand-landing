@@ -6,6 +6,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const ITEM_COLORS = ["text-accent", "text-pine", "text-ochre"];
+const ITEM_BORDERS = ["border-accent", "border-pine", "border-ochre"];
 const ITEM_BADGE_STYLES = [
   "bg-accent/10 text-accent",
   "bg-pine/10 text-pine",
@@ -81,7 +82,7 @@ export default function PointOfView() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease }}
-            className="text-display-lg font-bold leading-[1.08] text-ink"
+            className="text-[clamp(2.4rem,6vw,5rem)] font-bold leading-[1.08] [html[lang=en]_&]:text-[clamp(2rem,4.2vw,3.6rem)] [html[lang=en]_&]:leading-[1.12] text-ink"
           >
             {dict.pov.statement}
           </motion.p>
@@ -103,14 +104,14 @@ export default function PointOfView() {
             </p>
           </motion.div>
 
-          <p
+          <h2
             id="work"
-            className="mt-12 scroll-mt-28 text-[clamp(0.7rem,2.1vw,0.95rem)] leading-snug text-stone md:mt-16"
+            className="mt-16 scroll-mt-28 text-display-md font-bold text-ink md:mt-24"
           >
             {dict.work.label}
-          </p>
+          </h2>
 
-          <div className="mt-4 grid grid-cols-3 gap-3 sm:gap-6 md:gap-10">
+          <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
             {dict.work.items.map((item, i) => {
               const Icon = ITEM_ICONS[i % ITEM_ICONS.length];
               return (
@@ -120,20 +121,19 @@ export default function PointOfView() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.6, delay: i * 0.08, ease }}
-                  whileHover={{ y: -4 }}
-                  className="flex flex-col items-center text-center"
+                  className={`flex flex-col items-start border-t-[3px] bg-ink/[0.03] p-6 pb-7 text-start md:p-7 md:pb-8 ${ITEM_BORDERS[i % ITEM_BORDERS.length]}`}
                 >
                   <span
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full md:h-12 md:w-12 ${ITEM_BADGE_STYLES[i % ITEM_BADGE_STYLES.length]}`}
+                    className={`inline-flex h-11 w-11 items-center justify-center rounded-full ${ITEM_BADGE_STYLES[i % ITEM_BADGE_STYLES.length]}`}
                   >
-                    <Icon className="h-5 w-5 md:h-6 md:w-6" />
+                    <Icon className="h-[22px] w-[22px]" />
                   </span>
-                  <p
-                    className={`mt-3 text-[clamp(1.05rem,4.2vw,1.9rem)] font-bold leading-[1.1] ${ITEM_COLORS[i % ITEM_COLORS.length]}`}
+                  <h3
+                    className={`mt-4 text-[clamp(1.4rem,2.4vw,1.75rem)] font-bold leading-tight ${ITEM_COLORS[i % ITEM_COLORS.length]}`}
                   >
                     {item.title}
-                  </p>
-                  <p className="mt-2 text-[clamp(0.7rem,2.1vw,0.95rem)] leading-snug text-stone">
+                  </h3>
+                  <p className="mt-2.5 text-[clamp(1.05rem,1.4vw,1.15rem)] leading-relaxed text-stone">
                     {item.body}
                   </p>
                 </motion.div>
