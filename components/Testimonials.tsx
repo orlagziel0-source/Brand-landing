@@ -47,7 +47,7 @@ export default function Testimonials() {
   const copy = testimonials[locale] ?? testimonials.en;
 
   return (
-    <section id="testimonials" className="scroll-mt-28 pb-14 pt-10">
+    <section id="testimonials" className="scroll-mt-28 pb-10 pt-8">
       <div className="container-editorial">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2 className="text-[clamp(1.4rem,2.4vw,1.9rem)] font-bold text-ink">{copy.title}</h2>

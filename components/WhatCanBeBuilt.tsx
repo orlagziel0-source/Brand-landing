@@ -112,7 +112,7 @@ export default function WhatCanBeBuilt() {
   const { dict } = useLanguage();
 
   return (
-    <section id="build" className="scroll-mt-28 py-14 md:py-32">
+    <section id="build" className="scroll-mt-28 py-7 md:py-10">
       <div className="container-editorial">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -124,7 +124,7 @@ export default function WhatCanBeBuilt() {
           {dict.build.title}
         </motion.h2>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:mt-16 md:grid-cols-2 md:gap-6">
+        <div className="mt-6 grid grid-cols-1 gap-5 md:mt-8 md:grid-cols-2 md:gap-6">
           {dict.build.categories.map((category, i) => {
             const style = CATEGORY_STYLES[i % CATEGORY_STYLES.length];
             const Icon = CATEGORY_ICONS[i % CATEGORY_ICONS.length];

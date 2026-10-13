@@ -150,6 +150,23 @@ button:focus-visible,
   .tm-grid { overflow: visible; scroll-snap-type: none; flex-wrap: wrap; gap: 28px; }
   .tm-card { flex: 0 1 250px; }
 }
+/* Phones: every note visible at once, two small notes per row */
+@media (max-width: 899px) {
+  .tm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
+    overflow: visible;
+    scroll-snap-type: none;
+    margin: 22px 0 0;
+    padding: 12px 2px 6px;
+  }
+  .tm-card { flex: none; padding: 18px 12px 12px; }
+  .tm-card::before { width: 54px; height: 16px; top: -8px; }
+  .tm-text { font-size: 0.88rem; line-height: 1.5; }
+  .tm-more { margin-top: 6px; font-size: 0.74rem; }
+  .tm-who { margin-top: 8px; font-size: 0.72rem; }
+}
 @media (prefers-reduced-motion: reduce) {
   .tm-card { transition: none; }
 }

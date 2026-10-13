@@ -12,20 +12,20 @@ export default function About() {
   const linkedin = posts[locale] ?? posts.en;
 
   return (
-    <section id="about" className="scroll-mt-28 py-14 md:py-32">
+    <section id="about" className="scroll-mt-28 border-y border-line bg-ink/[0.035] py-10 md:py-14">
       <div className="container-editorial">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-16 lg:gap-20">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-16 lg:gap-20">
           <motion.div
             initial={{ opacity: 0, scale: 1.02 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease }}
-            className="relative aspect-[4/5] w-full overflow-hidden border border-line"
+            className="relative aspect-[4/5] w-full overflow-hidden border border-line max-md:order-2 max-md:aspect-square"
           >
             <img
               src="/portrait/portrait.jpg"
               alt={dict.about.portraitAlt}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover object-[center_22%]"
             />
           </motion.div>
 
@@ -34,12 +34,20 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1, ease }}
+            className="max-md:contents"
           >
-            <h2 className="text-display-md font-bold leading-tight text-ink">
-              {dict.about.title}
-            </h2>
+            {/* On phones this column dissolves into the grid so the title
+                sits above the portrait and the rest follows below it. */}
+            <div className="max-md:order-1">
+              <p className="mb-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.16em] text-accent">
+                {dict.nav.about}
+              </p>
+              <h2 className="text-display-md font-bold leading-tight text-ink">
+                {dict.about.title}
+              </h2>
+            </div>
 
-            <div className="mt-6 space-y-4">
+            <div className="mt-6 space-y-4 max-md:order-3 max-md:mt-1.5">
               {dict.about.body.map((paragraph, i) => (
                 <p
                   key={i}
@@ -50,7 +58,7 @@ export default function About() {
               ))}
             </div>
 
-            <div className="mt-12 border-t border-line pt-8">
+            <div className="mt-7 border-t border-line pt-[22px] max-md:order-3">
               <p className="mb-5 text-sm uppercase tracking-[0.14em] text-stone">
                 {dict.about.logosLabel}
               </p>
@@ -62,7 +70,7 @@ export default function About() {
             </div>
 
             {/* LinkedIn posts: quiet quote cards; a swipeable row on phones */}
-            <div className="mt-9 border-t border-line pt-7">
+            <div className="mt-6 border-t border-line pt-5 max-md:order-3">
               <div className="mb-3.5 flex items-baseline justify-between gap-2.5">
                 <p className="text-sm uppercase tracking-[0.13em] text-stone">{linkedin.label}</p>
                 {linkedin.note && <p className="text-[0.78rem] text-stone">{linkedin.note}</p>}

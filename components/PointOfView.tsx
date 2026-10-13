@@ -74,7 +74,7 @@ export default function PointOfView() {
   const { dict } = useLanguage();
 
   return (
-    <section className="py-14 md:py-36">
+    <section className="py-7 md:py-10">
       <div className="container-editorial">
         <div className="mx-auto max-w-4xl">
           <motion.p
@@ -92,7 +92,7 @@ export default function PointOfView() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.15, ease }}
-            className="mt-10 md:mt-14"
+            className="mt-6"
           >
             <span className="mb-4 flex h-1 w-20 gap-1" aria-hidden="true">
               <span className="flex-1 rounded-full bg-accent" />
@@ -106,12 +106,12 @@ export default function PointOfView() {
 
           <h2
             id="work"
-            className="mt-16 scroll-mt-28 text-display-md font-bold text-ink md:mt-24"
+            className="mt-9 scroll-mt-28 text-display-md font-bold text-ink md:mt-11"
           >
             {dict.work.label}
           </h2>
 
-          <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+          <div className="mt-[18px] grid grid-cols-3 gap-2.5 md:gap-4">
             {dict.work.items.map((item, i) => {
               const Icon = ITEM_ICONS[i % ITEM_ICONS.length];
               return (
@@ -121,19 +121,19 @@ export default function PointOfView() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.6, delay: i * 0.08, ease }}
-                  className={`flex flex-col items-start border-t-[3px] bg-ink/[0.03] p-6 pb-7 text-start md:p-7 md:pb-8 ${ITEM_BORDERS[i % ITEM_BORDERS.length]}`}
+                  className={`flex min-w-0 flex-col items-center border-t-[3px] bg-ink/[0.03] px-2.5 pb-[18px] pt-4 text-center md:px-[18px] md:pb-6 md:pt-[22px] ${ITEM_BORDERS[i % ITEM_BORDERS.length]}`}
                 >
                   <span
-                    className={`inline-flex h-11 w-11 items-center justify-center rounded-full ${ITEM_BADGE_STYLES[i % ITEM_BADGE_STYLES.length]}`}
+                    className={`inline-flex h-[34px] w-[34px] items-center justify-center rounded-full ${ITEM_BADGE_STYLES[i % ITEM_BADGE_STYLES.length]}`}
                   >
-                    <Icon className="h-[22px] w-[22px]" />
+                    <Icon className="h-[18px] w-[18px]" />
                   </span>
                   <h3
-                    className={`mt-4 text-[clamp(1.4rem,2.4vw,1.75rem)] font-bold leading-tight ${ITEM_COLORS[i % ITEM_COLORS.length]}`}
+                    className={`mt-2.5 text-[clamp(1rem,2.4vw,1.35rem)] font-bold leading-tight ${ITEM_COLORS[i % ITEM_COLORS.length]}`}
                   >
                     {item.title}
                   </h3>
-                  <p className="mt-2.5 text-[clamp(1.05rem,1.4vw,1.15rem)] leading-relaxed text-stone">
+                  <p className="mt-1.5 text-[clamp(0.78rem,1.5vw,0.95rem)] leading-[1.45] text-stone">
                     {item.body}
                   </p>
                 </motion.div>
