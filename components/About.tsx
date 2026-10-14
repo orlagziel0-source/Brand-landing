@@ -68,34 +68,64 @@ export default function About() {
                 <AppsFlyerLogo alt={dict.about.logosAlt.appsflyer} />
               </div>
             </div>
-
-            {/* LinkedIn posts: quiet quote cards; a swipeable row on phones */}
-            <div className="mt-6 border-t border-line pt-5 max-md:order-3">
-              <div className="mb-3.5 flex items-baseline justify-between gap-2.5">
-                <p className="text-sm uppercase tracking-[0.13em] text-stone">{linkedin.label}</p>
-                {linkedin.note && <p className="text-[0.78rem] text-stone">{linkedin.note}</p>}
-              </div>
-              <div className="no-scrollbar flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 lg:grid lg:grid-cols-3 lg:overflow-visible">
-                {linkedin.items.map((post) => (
-                  <a
-                    key={post.url}
-                    href={post.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex min-w-0 flex-[0_0_min(78vw,260px)] snap-start flex-col gap-2.5 border border-line bg-ink/[0.02] px-4 pb-3.5 pt-4 text-ink transition hover:-translate-y-0.5 hover:border-accent lg:flex-none"
-                  >
-                    <p className="text-[0.95rem] leading-[1.55]">{post.text}</p>
-                    <span className="mt-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[0.78rem]">
-                      <span className="whitespace-nowrap text-stone">{post.tag}</span>
-                      <span className="whitespace-nowrap font-semibold text-accent">{linkedin.read} ↗</span>
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </div>
           </motion.div>
+
+          {/* LinkedIn posts, styled as small LinkedIn post cards; full width
+              under the About grid, a swipeable row on phones */}
+          <div className="max-md:order-3 md:col-span-2">
+            <div className="mb-3.5 flex items-center justify-between gap-2.5">
+              <p className="flex items-center gap-2 text-sm uppercase tracking-[0.13em] text-stone">
+                <LinkedInMark />
+                {linkedin.label}
+              </p>
+              {linkedin.note && <p className="text-[0.78rem] text-stone">{linkedin.note}</p>}
+            </div>
+            <div className="no-scrollbar flex snap-x snap-mandatory gap-3.5 overflow-x-auto pb-1 lg:grid lg:grid-cols-3 lg:overflow-visible">
+              {linkedin.items.map((post) => (
+                <a
+                  key={post.url}
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-w-0 flex-[0_0_min(82vw,300px)] snap-start flex-col overflow-hidden rounded-[10px] border border-black/10 bg-white text-[#1d1d1d] shadow-[0_1px_2px_rgba(0,0,0,0.05)] transition hover:-translate-y-0.5 hover:border-[#0A66C2]/50 hover:shadow-[0_6px_18px_rgba(0,0,0,0.08)] lg:flex-none"
+                >
+                  <span className="flex items-center gap-2.5 px-3.5 pb-2 pt-3">
+                    <img
+                      src="/portrait/portrait.jpg"
+                      alt=""
+                      className="h-10 w-10 shrink-0 rounded-full object-cover object-[center_22%]"
+                    />
+                    <span className="min-w-0 flex-1 leading-tight">
+                      <span className="block text-[0.9rem] font-semibold">{linkedin.author}</span>
+                      <span className="block truncate text-[0.74rem] text-[#666]">{linkedin.role}</span>
+                    </span>
+                    <LinkedInMark small />
+                  </span>
+                  <p className="flex-1 px-3.5 pb-3 text-[0.9rem] leading-[1.5]">{post.text}</p>
+                  <span className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 border-t border-black/[0.08] px-3.5 pb-2.5 pt-[9px] text-[0.78rem]">
+                    <span className="whitespace-nowrap text-[#666]">{post.tag}</span>
+                    <span className="whitespace-nowrap font-semibold text-[#0A66C2]">{linkedin.read} ↗</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+function LinkedInMark({ small = false }: { small?: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`inline-grid shrink-0 place-items-center rounded bg-[#0A66C2] font-sans font-bold normal-case tracking-normal text-white ${
+        small ? "mt-0.5 self-start h-[18px] w-[18px] text-[11px]" : "h-5 w-5 text-[12px]"
+      }`}
+    >
+      in
+    </span>
+  );
+}
+

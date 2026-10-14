@@ -7,6 +7,8 @@ export interface Post {
   tag: string;
   text: string;
   project?: string;
+  /** Gallery index (event-(n+1).jpg) shown as the post's image. */
+  photo?: number;
 }
 
 export interface PostsCopy {
@@ -14,6 +16,8 @@ export interface PostsCopy {
   read: string;
   /** Shown next to the label when the posts are in another language. */
   note: string;
+  author: string;
+  role: string;
   items: Post[];
 }
 
@@ -22,23 +26,28 @@ export const posts: Record<Locale, PostsCopy> = {
     "label": "מהלינקדאין שלי",
     "read": "לקריאה בלינקדאין",
     "note": "",
+    "author": "אור לגזיאל",
+    "role": "ייעוץ חוויית עובד",
     "items": [
       {
         "url": "https://lnkd.in/p/eQx_dVRk",
         "tag": "Lights On",
         "project": "lights",
+        "photo": 14,
         "text": "מה שיצרנו כאן יחד זה לתת חיים חדשים לפריטים שכבר ויתרו עליהם. הכי סימבולי, וכל כך מרגש."
       },
       {
         "url": "https://lnkd.in/p/eHiWm4yH",
         "tag": "TED Break",
         "project": "ted",
+        "photo": 16,
         "text": "לפעמים בשביל לחבר צוות לא צריך אירוע ענק או פעילות מוגזמת. אפשר פשוט לעצור רגע מהיום יום, לשבת ביחד, ולהקשיב."
       },
       {
         "url": "https://lnkd.in/p/eJ-keMzA",
         "tag": "AF Born",
         "project": "afborn",
+        "photo": 0,
         "text": "עוד פרויקט שגורם לי להתרגש פעמיים בחודש, כל פעם מחדש."
       }
     ]
@@ -47,23 +56,28 @@ export const posts: Record<Locale, PostsCopy> = {
     "label": "From my LinkedIn",
     "read": "Read on LinkedIn",
     "note": "Posts are in Hebrew",
+    "author": "Or Lagziel",
+    "role": "People Experience Consultant",
     "items": [
       {
         "url": "https://lnkd.in/p/eQx_dVRk",
         "tag": "Lights On",
         "project": "lights",
+        "photo": 14,
         "text": "What we created here together is new life for items people had already given up on. So symbolic, and so moving."
       },
       {
         "url": "https://lnkd.in/p/eHiWm4yH",
         "tag": "TED Break",
         "project": "ted",
+        "photo": 16,
         "text": "Sometimes connecting a team doesn't take a huge event or an over-the-top activity. You can simply pause the day-to-day, sit together, and listen."
       },
       {
         "url": "https://lnkd.in/p/eJ-keMzA",
         "tag": "AF Born",
         "project": "afborn",
+        "photo": 0,
         "text": "Another project that gets me excited twice a month, every single time."
       }
     ]
