@@ -20,7 +20,7 @@ export const network: Record<Locale, NetworkCopy> = {
     title: "Knowing the field.",
     body: "Dozens of vendors, creators and nonprofits we have worked with on projects over the years.",
     groups: [
-      { title: "Gifts", names: ["Wish Gift", "TFactor", "Z-GUY", "BuyMe"] },
+      { title: "Gifts", names: ["Wish Gift", "TFactor", "Z-GUY", "BuyMe", "Bizing"] },
       { title: "Families", names: ["Mor For Your Baby", "Silver Bell", "Manhigota (Tal Breier Ben Mocha)"] },
       { title: "Production", names: ["Momenta", "Blend", "MP Live", "Vivo", "AP PRO", "Bardugo"] },
       { title: "Food", names: ["Yarzin Sella", "R2M", "Biscotti", "Amphora", "10Bis"] },
@@ -40,7 +40,7 @@ export const network: Record<Locale, NetworkCopy> = {
     title: "היכרות עם השטח.",
     body: "עשרות ספקים, יוצרים ועמותות שעבדנו יחד על פרויקטים לאורך השנים.",
     groups: [
-      { title: "מתנות", names: ["Wish Gift", "TFactor", "Z-GUY", "BuyMe"] },
+      { title: "מתנות", names: ["Wish Gift", "TFactor", "Z-GUY", "BuyMe", "ביזינג"] },
       { title: "משפחות", names: ["Mor For Your Baby", "Silver Bell", "מנהיגותה (טל ברייר בן מוחה)"] },
       { title: "הפקה", names: ["Momenta", "Blend", "MP Live", "Vivo", "AP PRO", "ברדוגו"] },
       { title: "אוכל", names: ["ירזין סלה", "R2M", "ביסקוטי", "אמפורה", "תן ביס"] },

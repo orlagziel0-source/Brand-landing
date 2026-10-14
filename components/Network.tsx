@@ -18,15 +18,28 @@ const GROUP_STYLES = [
 // Vendors worked with over the years: a slow running strip, each category
 // marked by a small colored label, then a short note on local small
 // businesses. Moved by a requestAnimationFrame loop (like the photo strip)
-// rather than a CSS animation; static for reduced motion.
+// rather than a CSS animation; stops on hover, can be dragged or stepped
+// with the arrows; static for reduced motion.
 export default function Network() {
   const { locale, dir } = useLanguage();
   const copy = network[locale] ?? network.en;
   const trackRef = useRef<HTMLDivElement>(null);
+  const offRef = useRef(0);
+  const pendingRef = useRef(0); // distance still to glide after an arrow click
+  const hoverRef = useRef(false);
+  const dragRef = useRef<{ x: number } | null>(null);
+  const holdUntilRef = useRef(0); // auto-run waits until this time after manual moves
+
+  const wrap = (tr: HTMLDivElement) => {
+    const half = tr.scrollWidth / 2;
+    if (half <= 0) return;
+    while (offRef.current <= -half) offRef.current += half;
+    while (offRef.current > 0) offRef.current -= half;
+    tr.style.transform = `translateX(${offRef.current}px)`;
+  };
 
   useEffect(() => {
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
-    let off = 0;
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     let last: number | null = null;
     let raf = 0;
     const step = (ts: number) => {
@@ -35,11 +48,15 @@ export default function Network() {
       const dt = Math.min((ts - last) / 1000, 0.1);
       last = ts;
       if (tr) {
-        const half = tr.scrollWidth / 2;
-        if (half > 0) {
-          off -= 40 * dt;
-          if (off <= -half) off += half;
-          tr.style.transform = `translateX(${off}px)`;
+        if (pendingRef.current !== 0) {
+          // glide toward the arrow target
+          const move = pendingRef.current * Math.min(1, dt * 8);
+          pendingRef.current = Math.abs(pendingRef.current - move) < 0.5 ? 0 : pendingRef.current - move;
+          offRef.current += move;
+          wrap(tr);
+        } else if (!reduced && !hoverRef.current && !dragRef.current && ts > holdUntilRef.current) {
+          offRef.current -= 40 * dt;
+          wrap(tr);
         }
       }
       raf = requestAnimationFrame(step);
@@ -47,6 +64,14 @@ export default function Network() {
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
   }, []);
+
+  const hold = () => {
+    holdUntilRef.current = performance.now() + 2500;
+  };
+  const nudge = (direction: 1 | -1) => {
+    pendingRef.current += -direction * 280;
+    hold();
+  };
 
   const strip = (hidden: boolean) => (
     <div className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
@@ -80,11 +105,61 @@ export default function Network() {
           <p className="max-w-[60ch] text-sm leading-relaxed text-stone md:text-base">{copy.body}</p>
         </motion.div>
 
-        <div className="net-marquee mt-5 border-y border-line py-4">
-          <div ref={trackRef} className="net-track">
-            {strip(false)}
-            {strip(true)}
+        {/* Hover to stop, drag to move, arrows to step through */}
+        <div
+          dir="ltr"
+          className="relative mt-5 border-y border-line"
+          onPointerEnter={(e) => {
+            if (e.pointerType === "mouse") hoverRef.current = true;
+          }}
+          onPointerLeave={(e) => {
+            if (e.pointerType === "mouse") hoverRef.current = false;
+          }}
+        >
+          <div
+            className="net-marquee cursor-grab touch-pan-y py-4 active:cursor-grabbing"
+            onPointerDown={(e) => {
+              dragRef.current = { x: e.clientX };
+              (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+            }}
+            onPointerMove={(e) => {
+              const d = dragRef.current;
+              const tr = trackRef.current;
+              if (!d || !tr) return;
+              offRef.current += e.clientX - d.x;
+              d.x = e.clientX;
+              wrap(tr);
+            }}
+            onPointerUp={() => {
+              dragRef.current = null;
+              hold();
+            }}
+            onPointerCancel={() => {
+              dragRef.current = null;
+              hold();
+            }}
+          >
+            <div ref={trackRef} className="net-track select-none">
+              {strip(false)}
+              {strip(true)}
+            </div>
           </div>
+          <button
+            type="button"
+            onClick={() => nudge(-1)}
+            aria-label={locale === "he" ? "אחורה" : "Back"}
+            className="absolute left-0 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 text-ink shadow-md ring-1 ring-line transition-colors hover:bg-paper"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><polyline points="15 18 9 12 15 6" /></svg>
+          </button>
+          <button
+            type="button"
+            onClick={() => nudge(1)}
+            aria-label={locale === "he" ? "קדימה" : "Forward"}
+            className="absolute right-0 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-paper/90 text-ink shadow-md ring-1 ring-line transition-colors hover:bg-paper"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4"><polyline points="9 18 15 12 9 6" /></svg>
+          </button>
         </div>
 
         {/* Two quiet notes side by side: local businesses and professional communities */}
