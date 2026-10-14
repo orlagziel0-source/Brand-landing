@@ -6,6 +6,7 @@ import EventsMarquee from "./EventsMarquee";
 import PointOfView from "./PointOfView";
 import WhatCanBeBuilt from "./WhatCanBeBuilt";
 import About from "./About";
+import Network from "./Network";
 import Testimonials from "./Testimonials";
 import FinalCTA from "./FinalCTA";
 import Footer from "./Footer";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <EventsMarquee />
         <PointOfView />
         <WhatCanBeBuilt />
+        <Network />
         <About />
         <Testimonials />
         <FinalCTA />

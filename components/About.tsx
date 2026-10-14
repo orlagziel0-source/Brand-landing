@@ -14,7 +14,7 @@ export default function About() {
   return (
     <section id="about" className="scroll-mt-28 border-y border-line bg-ink/[0.035] py-10 md:py-14">
       <div className="container-editorial">
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-16 lg:gap-20">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-x-16 md:gap-y-9 lg:gap-x-20">
           <motion.div
             initial={{ opacity: 0, scale: 1.02 }}
             whileInView={{ opacity: 1, scale: 1 }}

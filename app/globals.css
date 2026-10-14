@@ -170,3 +170,21 @@ button:focus-visible,
 @media (prefers-reduced-motion: reduce) {
   .tm-card { transition: none; }
 }
+
+/* Vendor strip (components/Network.tsx): the track holds the list twice and
+   is moved by a requestAnimationFrame loop in the component. */
+.net-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+.net-track {
+  display: flex;
+  width: max-content;
+  direction: ltr;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .net-track { width: auto; flex-wrap: wrap; row-gap: 12px; }
+  .net-track > [aria-hidden="true"] { display: none; }
+}
