@@ -1,6 +1,6 @@
 // The site's public address. If a custom domain is connected later
 // (e.g. https://orlagziel.com), change it here only.
-export const SITE_URL = "https://orlagziel.com";
+export const SITE_URL = "https://www.orlagziel.com";
 
 // Social sharing image. If the image is ever replaced, bump the version so
 // WhatsApp/LinkedIn treat it as a new URL instead of showing a cached copy.
