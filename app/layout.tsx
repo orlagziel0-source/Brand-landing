@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Heebo } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "@/lib/LanguageContext";
+import { SITE_URL, OG_IMAGE_URL } from "@/lib/site";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -17,18 +17,9 @@ const heebo = Heebo({
   weight: ["400", "500", "700"],
 });
 
-// NOTE on SEO: the page is a single client-toggled bilingual route (per the
-// brief), so metadata is rendered once, for the default language (English).
-// If per-language URLs are ever introduced (e.g. /he), move this into
-// generateMetadata keyed off the route and add hreflang alternates.
-const SITE_URL = "https://brand-landing-flax.vercel.app";
-
-// Social sharing preview (English by default). The image lives in /public so
-// it is served as a static, publicly accessible file. If the image is ever
-// replaced, bump OG_IMAGE_VERSION so WhatsApp/LinkedIn treat it as a new URL
-// instead of showing their cached copy.
-const OG_IMAGE_VERSION = "1";
-const OG_IMAGE_URL = `${SITE_URL}/og-image.jpg?v=${OG_IMAGE_VERSION}`;
+// SEO: English lives at "/" (metadata below) and Hebrew at "/he"
+// (metadata in app/he/page.tsx). Both point at each other with hreflang
+// alternates so Google shows the right language to each searcher.
 const SHARE_TITLE = "Or Lagziel · People Experience";
 const SHARE_DESCRIPTION =
   "Flexible Employee Experience services. From focused projects to ongoing support, without the need for another full-time hire.";
@@ -37,9 +28,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Or Lagziel · אור לגזיאל · People Experience",
   description:
-    "Flexible Employee Experience support for companies that want to do more for their people, without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
+    "Employee experience, start to finish: planned, produced and delivered. Flexible support for companies that want to do more for their people. Six years at global tech companies including monday.com, Meta and AppsFlyer.",
   alternates: {
     canonical: SITE_URL,
+    languages: { en: SITE_URL, he: `${SITE_URL}/he`, "x-default": SITE_URL },
   },
   openGraph: {
     title: SHARE_TITLE,
@@ -68,20 +60,13 @@ export const metadata: Metadata = {
   },
 };
 
-// Runs before React hydrates so the correct dir/lang (and therefore layout)
-// is applied on first paint — avoids an RTL/LTR flash for returning
-// visitors who previously switched language. Kept intentionally tiny.
-const themeInitScript = `
+// Sets lang/dir on <html> from the address before first paint: "/he" is
+// Hebrew (right-to-left), everything else English. Kept intentionally tiny.
+const dirScript = `
 (function () {
-  try {
-    var stored = window.localStorage.getItem("site-locale");
-    var locale = stored === "he" ? "he" : "en";
-    document.documentElement.lang = locale;
-    document.documentElement.dir = locale === "he" ? "rtl" : "ltr";
-  } catch (e) {
-    document.documentElement.lang = "en";
-    document.documentElement.dir = "ltr";
-  }
+  var he = /^\\/he(\\/|$)/.test(window.location.pathname);
+  document.documentElement.lang = he ? "he" : "en";
+  document.documentElement.dir = he ? "rtl" : "ltr";
 })();
 `;
 
@@ -98,10 +83,10 @@ export default function RootLayout({
       className={`${manrope.variable} ${heebo.variable}`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: dirScript }} />
       </head>
       <body suppressHydrationWarning>
-        <LanguageProvider>{children}</LanguageProvider>
+        {children}
       </body>
     </html>
   );

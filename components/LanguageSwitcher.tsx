@@ -7,7 +7,7 @@ export default function LanguageSwitcher({
 }: {
   className?: string;
 }) {
-  const { locale, setLocale, dict } = useLanguage();
+  const { locale, dict } = useLanguage();
 
   return (
     <div
@@ -15,29 +15,31 @@ export default function LanguageSwitcher({
       role="group"
       aria-label="Language / שפה"
     >
-      <button
-        type="button"
-        onClick={() => setLocale("he")}
-        aria-pressed={locale === "he"}
+      <a
+        href="/he"
+        hrefLang="he"
+        lang="he"
+        aria-current={locale === "he" ? "true" : undefined}
         className={`px-1.5 py-1 transition-colors duration-200 ${
           locale === "he" ? "font-medium text-ink" : "text-stone hover:text-ink"
         }`}
       >
         {dict.langSwitch.he}
-      </button>
+      </a>
       <span className="text-stone-light" aria-hidden="true">
         |
       </span>
-      <button
-        type="button"
-        onClick={() => setLocale("en")}
-        aria-pressed={locale === "en"}
+      <a
+        href="/"
+        hrefLang="en"
+        lang="en"
+        aria-current={locale === "en" ? "true" : undefined}
         className={`px-1.5 py-1 transition-colors duration-200 ${
           locale === "en" ? "font-medium text-ink" : "text-stone hover:text-ink"
         }`}
       >
         {dict.langSwitch.en}
-      </button>
+      </a>
     </div>
   );
 }

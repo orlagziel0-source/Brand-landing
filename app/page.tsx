@@ -1,27 +1,11 @@
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import EventsMarquee from "@/components/EventsMarquee";
-import PointOfView from "@/components/PointOfView";
-import WhatCanBeBuilt from "@/components/WhatCanBeBuilt";
-import About from "@/components/About";
-import Testimonials from "@/components/Testimonials";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
+import HomePage from "@/components/HomePage";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
+// English version of the site, at "/". The Hebrew version lives at "/he".
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main id="top" className="scroll-mt-28">
-        <Hero />
-        <EventsMarquee />
-        <PointOfView />
-        <WhatCanBeBuilt />
-        <About />
-        <Testimonials />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </>
+    <LanguageProvider locale="en">
+      <HomePage />
+    </LanguageProvider>
   );
 }
