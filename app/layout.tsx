@@ -22,7 +22,7 @@ const heebo = Heebo({
 // alternates so Google shows the right language to each searcher.
 const SHARE_TITLE = "Or Lagziel · People Experience";
 const SHARE_DESCRIPTION =
-  "Flexible Employee Experience services. From focused projects to ongoing support, without the need for another full-time hire.";
+  "Employee experience, start to finish. Planned, produced and delivered. Flexible support for companies that want to do more for their people.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "Or Lagziel — A personal experience for people. A smarter model for the business.",
+        alt: "Or Lagziel — Employee experience, start to finish. Planned, produced and delivered.",
       },
     ],
   },
