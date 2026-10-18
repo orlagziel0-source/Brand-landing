@@ -9,10 +9,10 @@ const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 // Full literal class strings so Tailwind's JIT picks them up.
 const GROUP_STYLES = [
-  "bg-accent/10 text-accent",
-  "bg-pine/10 text-pine",
-  "bg-ochre/10 text-ochre",
-  "bg-denim/10 text-denim",
+  "text-accent border-accent/30",
+  "text-pine border-pine/30",
+  "text-ochre border-ochre/30",
+  "text-denim border-denim/30",
 ];
 
 // Vendors worked with over the years: a slow running strip, each category
@@ -74,18 +74,21 @@ export default function Network() {
   };
 
   const strip = (hidden: boolean) => (
-    <div className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
+    <div className="flex shrink-0 items-start" aria-hidden={hidden || undefined}>
       {copy.groups.map((g, i) => (
-        <span key={g.title} dir={dir} className="flex shrink-0 items-center gap-4 pe-10">
-          <span className={`rounded-full px-2.5 py-0.5 text-[0.75rem] font-semibold ${GROUP_STYLES[i % GROUP_STYLES.length]}`}>
+        // Category label sits above its names, with a thin rule spanning the group
+        <span key={g.title} dir={dir} className="flex shrink-0 flex-col gap-2 pe-14">
+          <span className={`border-b pb-1 text-[0.82rem] font-bold uppercase tracking-[0.04em] ${GROUP_STYLES[i % GROUP_STYLES.length]}`}>
             {g.title}
           </span>
-          {g.names.map((n, j) => (
-            <span key={n} className="flex items-center gap-4 whitespace-nowrap text-[1.05rem] font-medium text-ink/80 md:text-lg">
-              {j > 0 && <span className="text-[0.6rem] text-stone/50" aria-hidden="true">✦</span>}
-              {n}
-            </span>
-          ))}
+          <span className="flex items-center gap-3 md:gap-4">
+            {g.names.map((n, j) => (
+              <span key={n} className="flex items-center gap-3 whitespace-nowrap text-[0.95rem] font-medium text-ink/80 md:gap-4 md:text-lg">
+                {j > 0 && <span className="text-[0.6rem] text-stone/50" aria-hidden="true">✦</span>}
+                {n}
+              </span>
+            ))}
+          </span>
         </span>
       ))}
     </div>

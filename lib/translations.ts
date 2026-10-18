@@ -86,7 +86,7 @@ export const translations: Record<Locale, Dictionary> = {
     meta: {
       title: "Or Lagziel, Employee Experience for growing businesses",
       description:
-        "Flexible Employee Experience support for companies that want to do more for their people — without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
+        "Flexible Employee Experience support for companies that want to do more for their people, without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
     },
     brand: "Or Lagziel",
     nav: {
@@ -106,8 +106,8 @@ export const translations: Record<Locale, Dictionary> = {
     hero: {
       titleLine1: "Employee experience, start to finish.",
       titleLine2: "Planned, produced and delivered.",
-      supporting: "From day one to life's meaningful moments.",
-      teamLine: "Flexible support for companies that want to do more for their people.",
+      supporting: "From onboarding to the meaningful moments in an employee's life.",
+      teamLine: "Tailored, flexible support for companies that want to do more for their people, without hiring another full-time role.",
       engagementLine: "For a project, a defined period, or ongoing support.",
       serviceLine: "Employee Experience · Community · Culture · Projects",
     },
@@ -115,7 +115,7 @@ export const translations: Record<Locale, Dictionary> = {
       statement:
         "Not every audience is a community, and not every successful event creates a great employee experience.",
       supporting:
-        "Employee experience is built through the small moments along the way — how people join, how milestones are celebrated, how communication feels, how communities are created, and whether employees feel that someone actually thought about their experience.",
+        "Employee experience is built through the small moments along the way: how people join, how milestones are celebrated, how communication feels, how communities are created, and whether employees feel that someone actually thought about their experience.",
     },
     gallery: {
       label: "Events and initiatives",
@@ -138,7 +138,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           title: "Ongoing Support",
-          body: "Monthly support throughout the year — without adding another full-time role to the team.",
+          body: "Monthly support throughout the year, without adding another full-time role to the team.",
         },
       ],
     },
@@ -147,7 +147,7 @@ export const translations: Record<Locale, Dictionary> = {
       categories: [
         {
           title: "Annual Employee Experience Plan",
-          body: "Building the full-year picture — goals, key moments, budget, activity calendar and forward planning.",
+          body: "Building the full-year picture: goals, key moments, budget, activity calendar and forward planning.",
           tags: [
             "Annual planning",
             "Holidays",
@@ -159,7 +159,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           title: "Employee Journey & Life Moments",
-          body: "Designing the employee experience across the moments that matter — from day one to personal, family and wellbeing milestones.",
+          body: "Designing the employee experience across the moments that matter, from day one to personal, family and wellbeing milestones.",
           tags: [
             "Onboarding",
             "Birthdays",
@@ -172,7 +172,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           title: "Employee Communities",
-          body: "Building employee-led communities around shared interests, hobbies and professional topics — so people can find connection inside the workplace too.",
+          body: "Building employee-led communities around shared interests, hobbies and professional topics, so people can find connection inside the workplace too.",
           tags: [
             "Running",
             "Books",
@@ -183,7 +183,7 @@ export const translations: Record<Locale, Dictionary> = {
         },
         {
           title: "Events & Focused Projects",
-          body: "Designing and leading events and focused projects as part of the employee experience — from concept and planning through execution.",
+          body: "Designing and leading events and focused projects as part of the employee experience, from concept and planning through execution.",
           tags: [
             "Holidays",
             "Events",
@@ -242,8 +242,8 @@ export const translations: Record<Locale, Dictionary> = {
     hero: {
       titleLine1: "חוויית עובד מקצה לקצה.",
       titleLine2: "תכנון, הפקה וביצוע.",
-      supporting: "מהיום הראשון ועד הרגעים המשמעותיים של החיים.",
-      teamLine: "ליווי גמיש לעסקים שרוצים לעשות יותר עבור האנשים שלהם.",
+      supporting: "מהאונבורדינג ועד הרגעים המשמעותיים בחיי העובד.",
+      teamLine: "ליווי מותאם וגמיש לעסקים שרוצים לעשות יותר עבור האנשים שלהם, בלי לגייס עוד משרה מלאה.",
       engagementLine: "לפרויקט, לתקופה מוגדרת, או לליווי שוטף.",
       serviceLine: "חוויית עובד · קהילה · תרבות · פרויקטים",
     },

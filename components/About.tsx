@@ -58,7 +58,7 @@ export default function About() {
               ))}
             </div>
 
-            <div className="mt-7 border-t border-line pt-[22px] max-md:order-3">
+            <div className="mt-7 border-t border-line pt-[22px] max-md:order-1 max-md:mt-1 max-md:border-0 max-md:pt-0">
               <p className="mb-5 text-sm uppercase tracking-[0.14em] text-stone">
                 {dict.about.logosLabel}
               </p>

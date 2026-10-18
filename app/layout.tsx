@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: "Or Lagziel — Employee experience, start to finish. Planned, produced and delivered.",
+        alt: "Or Lagziel · Employee experience, start to finish. Planned, produced and delivered.",
       },
     ],
   },

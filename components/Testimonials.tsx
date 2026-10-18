@@ -11,11 +11,13 @@ function Note({
   index,
   more,
   less,
+  translated,
 }: {
   item: Testimonial;
   index: number;
   more: string;
   less: string;
+  translated: string;
 }) {
   const [open, setOpen] = useState(false);
   const text = item.excerpt && !open ? item.excerpt : item.text;
@@ -37,6 +39,7 @@ function Note({
         <cite className="tm-name">{item.name}</cite>
         <br />
         <span>{item.role}</span>
+        {item.translated && translated && <span className="tm-tr">{translated}</span>}
       </figcaption>
     </figure>
   );
@@ -51,11 +54,10 @@ export default function Testimonials() {
       <div className="container-editorial">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2 className="text-[clamp(1.4rem,2.4vw,1.9rem)] font-bold text-ink">{copy.title}</h2>
-          {copy.translated && <p className="text-[0.8rem] text-stone">{copy.translated}</p>}
         </div>
         <div className="tm-grid">
           {copy.items.map((item, i) => (
-            <Note key={item.name} item={item} index={i} more={copy.more} less={copy.less} />
+            <Note key={item.name} item={item} index={i} more={copy.more} less={copy.less} translated={copy.translated} />
           ))}
         </div>
       </div>
