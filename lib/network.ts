@@ -21,7 +21,7 @@ export const network: Record<Locale, NetworkCopy> = {
     body: "Dozens of vendors, creators and nonprofits we have worked with on projects over the years.",
     groups: [
       { title: "Gifts", names: ["Wish Gift", "TFactor", "Z-GUY", "BuyMe", "Bizing"] },
-      { title: "Families", names: ["Mor For Your Baby", "Silver Bell", "Manhigota"] },
+      { title: "Family", names: ["Mor For Your Baby", "Silver Bell", "Manhigota"] },
       { title: "Production", names: ["MOMENTA", "BLEND", "MP LIVE", "VIVO", "AP PRO", "BARDUGO"] },
       { title: "Culinary", names: ["Yarzin Sella", "R2M", "Biscotti", "Amphora", "10Bis"] },
       { title: "Workshops", names: ["Fitmate", "Guru Zuzu", "Shlofta", "Molet", "Clayla TLV", "Sup Yoga TLV"] },
@@ -41,7 +41,7 @@ export const network: Record<Locale, NetworkCopy> = {
     body: "עשרות ספקים, יוצרים ועמותות שעבדנו יחד על פרויקטים לאורך השנים.",
     groups: [
       { title: "מתנות", names: ["Wish Gift", "TFactor", "Z-GUY", "BuyMe", "ביזינג"] },
-      { title: "משפחות", names: ["Mor For Your Baby", "Silver Bell", "מנהיגותה"] },
+      { title: "משפחה", names: ["Mor For Your Baby", "Silver Bell", "מנהיגותה"] },
       { title: "הפקה", names: ["MOMENTA", "BLEND", "MP LIVE", "VIVO", "AP PRO", "ברדוגו"] },
       { title: "קולינריה", names: ["ירזין סלה", "R2M", "ביסקוטי", "אמפורה", "תן ביס"] },
       { title: "סדנאות", names: ["Fitmate", "גורו זוזו", "שלופטה", "Molet", "Clayla TLV", "Sup Yoga TLV"] },
