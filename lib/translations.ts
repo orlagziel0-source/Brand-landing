@@ -174,7 +174,7 @@ export const translations: Record<Locale, Dictionary> = {
           title: "Employee Communities",
           body: "Building employee-led communities around shared interests, hobbies and professional topics, so people can find connection inside the workplace too.",
           tags: [
-            "Running",
+            "Wellness",
             "Books",
             "Parents",
             "Investing",
@@ -190,7 +190,7 @@ export const translations: Record<Locale, Dictionary> = {
             "Offsites",
             "Culture initiatives",
             "Internal launches",
-            "Special projects",
+            "Volunteering & Do Good",
           ],
         },
       ],
@@ -293,12 +293,12 @@ export const translations: Record<Locale, Dictionary> = {
         {
           title: "קהילות עובדים",
           body: "בניית קהילות לעובדים סביב תחומי עניין, תחביבים ועולמות תוכן, עם העובדים עצמם כמובילי הקהילה.",
-          tags: ["ריצה", "ספרים", "הורים", "השקעות", "קהילות מקצועיות"],
+          tags: ["וולנס", "ספרים", "הורים", "השקעות", "קהילות מקצועיות"],
         },
         {
           title: "אירועים ופרויקטים",
           body: "תכנון והובלה של אירועים ופרויקטים ממוקדים כחלק מחוויית העובד, מהרעיון והקונספט ועד הביצוע בפועל.",
-          tags: ["חגים", "אירועים", "Offsites", "יוזמות תרבות", "השקות פנימיות", "פרויקטים מיוחדים"],
+          tags: ["חגים", "אירועים", "Offsites", "יוזמות תרבות", "השקות פנימיות", "התנדבויות ו-Do Good"],
         },
       ],
     },

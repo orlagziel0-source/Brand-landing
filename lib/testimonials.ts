@@ -64,6 +64,13 @@ export const testimonials: Record<Locale, TestimonialsCopy> = {
         "text": "אור היא תקתקנית, יוזמת וביצועיסטית, מהאנשים שאפשר לסמוך עליהם בעיניים עצומות. כשהיא לוקחת משימה, היא דואגת להתחיל, לקדם ולסיים אותה עד הסוף, בלי לעגל פינות ובלי להשאיר קצוות פתוחים. היא יודעת לזהות מה צריך לקרות, להניע תהליכים, לחשוב מחוץ לקופסה ולשנות כיוון כשצריך, תמיד בגמישות, בפתיחות ובמטרה להגיע לתוצאה הטובה ביותר. לצד כל אלה, היא מביאה איתה אנרגיה חיובית, אור ואופטימיות שמקרינים על כל מי שסביבה. היא יודעת לרתום אנשים, ליצור חיבור, להניע לעשייה ולגרום לדברים להתקדם בדרך נעימה, שירותית ומלאת התלהבות. אני בטוחה שכל מי שיזכה לעבוד איתה יגלה במהרה שילוב מנצח של מקצועיות, יוזמה, מחויבות ואנושיות. ממליצה עליה מכל הלב, ובטוחה שהיא תביא את הערך המיוחד שלה לכל עשייה שתבחר להוביל."
       },
       {
+        "name": "שלי לופטיג",
+        "initials": "של",
+        "role": "Volunteer Relations Manager, AppsFlyer",
+        "excerpt": "לעבוד עם אור זה לעבוד עם מישהי שמביאה לב ומצוינות לכל מה שהיא עושה.",
+        "text": "לאור יש יכולת נדירה להפוך את חוויית העובד למשהו משמעותי באמת. עם היצירתיות, האנרגיה המדבקת והאכפתיות האמיתית שלה לאנשים, היא יודעת ליצור חוויות שמחברות בין אנשים, נותנות השראה וגורמות להם להרגיש מוערכים. היא משלבת חשיבה אסטרטגית עם עשייה בשטח, מוציאה רעיונות חדשים לפועל וגורמת לדברים לקרות. לעבוד עם אור זה לעבוד עם מישהי שמביאה לב ומצוינות לכל מה שהיא עושה."
+      },
+      {
         "name": "הדר יעקוב",
         "initials": "הי",
         "role": "People Experience, monday.com",
@@ -115,6 +122,13 @@ export const testimonials: Record<Locale, TestimonialsCopy> = {
         "excerpt": "Or is organized, proactive and a true doer, one of those people you can trust with your eyes closed.",
         "text": "Or is organized, proactive and a true doer, one of those people you can trust with your eyes closed. When she takes on a task, she starts it, moves it forward and sees it through to the end, without cutting corners or leaving loose ends. She knows how to spot what needs to happen, drive processes, think outside the box and change direction when needed, always with flexibility, openness and the aim of reaching the best possible result. Alongside all that, she brings positive energy, light and optimism that rub off on everyone around her. She knows how to rally people, build connection, get things moving and make progress happen in a pleasant, service-minded and enthusiastic way. I am sure that anyone lucky enough to work with her will quickly discover a winning combination of professionalism, initiative, commitment and humanity. I recommend her wholeheartedly, and I am sure she will bring her special value to whatever she chooses to lead.",
         "translated": true
+      },
+      {
+        "name": "Shelly Luftig",
+        "initials": "SL",
+        "role": "Volunteer Relations Manager, AppsFlyer",
+        "excerpt": "Working with Or means working with someone who brings both heart and excellence to everything she does.",
+        "text": "Or has a rare ability to turn employee experience into something truly meaningful. With her creativity, contagious energy and genuine care for people, she knows how to create experiences that bring people together, inspire them and make them feel valued. She combines a strategic mindset with a hands-on approach, bringing fresh ideas to life and making things happen. Working with Or means working with someone who brings both heart and excellence to everything she does."
       },
       {
         "name": "Hadar Yaakov",
