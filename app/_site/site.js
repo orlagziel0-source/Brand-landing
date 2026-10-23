@@ -56,10 +56,9 @@
         supporting: "Employee experience is built through the small moments along the way: how people join, how milestones are celebrated, how communication feels, how communities are created, and whether employees feel that someone actually thought about their experience."
       },
       values: {
-        title: "Meaningful employee experiences don't require big budgets.",
-        p1: "I believe great employee experiences start with thoughtfulness, creativity, and a genuine understanding of people, not necessarily big budgets.",
-        p2: "After years of working at AppsFlyer, Meta, and monday.com, I bring the knowledge, experience, and tools I've gained at large organizations to smaller and growing companies.",
-        p3: "Because you don't need to be a big company to create meaningful moments, build communities, and make employees feel valued."
+        title: "You don't need a big budget to create a meaningful employee experience.",
+        p1: "I believe great employee experiences start with thoughtfulness, creativity, and a genuine understanding of people.",
+        p2: "After years at AppsFlyer, Meta, and monday.com, I bring the knowledge and experience I've gained at large organizations to smaller, growing companies too, tailored to each organization's people, needs, and budget."
       },
       gallery: { label: "Events and initiatives", alt: "Photo from an employee experience event", photoBy: "Photo: ", photographers: { victor: "Victor Levy", tomer: "Tomer Foltyn" }, intro: "A glimpse of the work" },
       work: {
@@ -115,10 +114,9 @@
         supporting: "חוויית עובד נבנית מהרבה רגעים קטנים לאורך הדרך, איך מצטרפים לחברה, איך מציינים רגעים אישיים, איך מתקשרים, איך בונים קהילה, ואיך גורמים לאנשים להרגיש שיש מחשבה מאחורי הדברים."
       },
       values: {
-        title: "חוויית עובד משמעותית לא חייבת תקציב גדול.",
-        p1: "אני מאמינה שחוויית עובד טובה מתחילה במחשבה, ביצירתיות ובהיכרות אמיתית עם האנשים, לא בהכרח בתקציבים גדולים.",
-        p2: "אחרי שנים של עשייה ב-AppsFlyer, Meta ו-monday.com, אני מביאה את הידע, הניסיון והכלים שצברתי בחברות גדולות גם לחברות קטנות וצומחות.",
-        p3: "כי לא צריך להיות ארגון גדול כדי ליצור רגעים משמעותיים, לבנות קהילה ולגרום לעובדים להרגיש שיש מי שחושב עליהם."
+        title: "לא צריך תקציב גדול כדי ליצור חוויית עובד משמעותית.",
+        p1: "אני מאמינה שחוויית עובד טובה מתחילה במחשבה, ביצירתיות ובהיכרות אמיתית עם האנשים.",
+        p2: "אחרי שנים ב-AppsFlyer, Meta ו-monday.com, אני מביאה את הידע והניסיון שצברתי בחברות גדולות גם לחברות קטנות וצומחות, ומתאימה אותם לאנשים, לצרכים ולתקציב של כל ארגון."
       },
       gallery: { label: "אירועים ופרויקטים", alt: "תמונה מאירוע חוויית עובד", photoBy: "צילום: ", photographers: { victor: "ויקטור לוי", tomer: "תומר פולטין" }, intro: "קצת מהעשייה" },
       work: {
