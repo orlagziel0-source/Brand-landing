@@ -62,23 +62,21 @@
 
   .wrap{ max-width:1320px; margin-inline:auto; }
 
-  /* values / philosophy — contained panel, deliberately quieter than the
-     full-bleed hero/contact bands so it reads as an accent, not a repeat */
-  .values{ padding-block:24px; }
-  .values-panel{
-    background:color-mix(in srgb, var(--accent) 90%, var(--ink) 10%);
-    color:var(--band-text);
-    border-radius:18px;
-    padding:32px 24px;
-    max-width:720px;
+  /* values / philosophy — open, airy restatement, separated from the
+     sections around it by a subtly deeper beige band (full-bleed, same
+     technique as .hero-band) rather than lines or colored accents */
+  .values{
+    padding-block:28px;
+    background:color-mix(in srgb, var(--paper) 90%, var(--stone) 10%);
+    margin-inline:clamp(-20px,-5vw,-80px); padding-inline:clamp(20px,5vw,80px);
   }
-  .values-heading{ font-size:clamp(1.4rem,2.8vw,1.9rem); font-weight:700; line-height:1.25; letter-spacing:-.005em; color:var(--band-text); }
-  .values-body{ margin-top:12px; display:flex; flex-direction:column; gap:6px; }
-  .values-body p{ font-size:clamp(.95rem,1.4vw,1.02rem); line-height:1.6; color:color-mix(in srgb, var(--band-text) 86%, transparent); }
+  .values-inner{ max-width:740px; margin-inline:auto; text-align:center; }
+  .values-heading{ font-size:clamp(1.6rem,3.6vw,2.5rem); font-weight:700; line-height:1.2; letter-spacing:-.005em; color:var(--accent); }
+  .values-body{ margin-top:18px; display:flex; flex-direction:column; gap:12px; }
+  .values-body p{ font-size:clamp(1rem,1.6vw,1.15rem); line-height:1.55; color:var(--stone); }
   @media (min-width:768px){
-    .values{ padding-block:40px; }
-    .values-panel{ padding:44px 52px; border-radius:22px; }
-    .values-body{ margin-top:16px; gap:8px; }
+    .values{ padding-block:44px; }
+    .values-body{ margin-top:22px; gap:14px; }
   }
 
   /* header */
@@ -180,7 +178,7 @@
      without fighting the cascade. */
   .gallery-intro{ margin:48px 0 10px; text-align:center; font-size:.95rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--stone); }
   @media (min-width:768px){ .gallery-intro{ margin:64px 0 14px; } }
-  .marquee-row{ position:relative; overflow:hidden; border-block:1px solid var(--line); padding-block:20px; }
+  .marquee-row{ position:relative; overflow:hidden; border-top:1px solid var(--line); padding-block:20px; }
   .marquee-track{ display:flex; width:max-content; gap:12px; will-change:transform; }
   .marquee-item{ flex-shrink:0; height:144px; width:220px; overflow:hidden; border-radius:8px; }
   .marquee-item img{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -212,7 +210,7 @@
   }
 
   /* point of view */
-  .pov-inner{ max-width:880px; }
+  .pov-inner{ max-width:880px; margin-inline:auto; }
   .pov-statement{ font-size:clamp(2.1rem,5vw,3.4rem); font-weight:700; line-height:1.1; }
   .pov-supporting{ margin-top:44px; max-width:640px; }
   .pov-bar-row{ display:flex; gap:4px; width:80px; height:4px; margin-bottom:16px; }
@@ -415,7 +413,7 @@
   .marquee-item.plus-tr .marquee-pill{ left:auto; right:10px; }
   .marquee-item:hover .marquee-pill{ transform:rotate(90deg); background:#7A2333; color:#F7F4EE; }
   .marquee-item:hover .marquee-credit{ opacity:0; }
-  .marquee-hint{ margin:10px 0 0; text-align:center; font-size:.85rem; color:var(--stone); }
+  .marquee-hint{ margin:4px 0 0; text-align:center; font-size:.85rem; color:var(--stone); }
   .pj-backdrop{ position:fixed; inset:0; z-index:100; background:rgba(20,18,16,.62); display:flex; align-items:center; justify-content:center; padding:16px; }
   .pj-backdrop[hidden]{ display:none!important; }
   .pj{
@@ -513,7 +511,7 @@
   /* tighter rhythm between sections */
   section{ padding-block:28px; }
   @media (min-width:768px){ section{ padding-block:40px; } }
-  .marquee-hint{ margin-bottom:0; }
+  .marquee-hint{ margin-bottom:28px; }
   .pov-supporting{ margin-top:24px; }
   .work-label{ margin-top:36px!important; }
   .build-list{ margin-top:24px!important; }
