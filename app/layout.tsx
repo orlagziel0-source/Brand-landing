@@ -1,93 +1,64 @@
 import type { Metadata } from "next";
-import { Manrope, Heebo } from "next/font/google";
-import "./globals.css";
-import { SITE_URL, OG_IMAGE_URL } from "@/lib/site";
+import fs from "node:fs";
+import path from "node:path";
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-  weight: ["400", "500", "700"],
-});
-
-const heebo = Heebo({
-  subsets: ["hebrew", "latin"],
-  variable: "--font-heebo",
-  display: "swap",
-  weight: ["400", "500", "700"],
-});
-
-// SEO: English lives at "/" (metadata below) and Hebrew at "/he"
-// (metadata in app/he/page.tsx). Both point at each other with hreflang
-// alternates so Google shows the right language to each searcher.
-const SHARE_TITLE = "Or Lagziel · People Experience";
-const SHARE_DESCRIPTION =
-  "Employee experience, start to finish. Planned, produced and delivered. Flexible support for companies that want to do more for their people.";
+// This layout, together with app/page.tsx, renders the EXACT same
+// HTML/CSS/JS as the live Claude Artifact preview that Or reviews and
+// approves changes on (https://claude.ai/artifact/1bqBvrNKYyoxWwzDfGi4UB).
+// Rather than hand-porting every feature into separate React components
+// (which drifted out of sync in the past), the site's real CSS/markup/JS
+// are read from app/_site/ and injected as-is. To sync a future change:
+// re-export the artifact's HTML and overwrite the three files in
+// app/_site/ (site.css, body.html, site.js) with the matching slices —
+// see the project README for the exact extraction boundaries.
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL("https://brand-landing-flax.vercel.app"),
   title: "Or Lagziel · אור לגזיאל · People Experience",
   description:
-    "Employee experience, start to finish: planned, produced and delivered. Flexible support for companies that want to do more for their people. Six years at global tech companies including monday.com, Meta and AppsFlyer.",
-  alternates: {
-    canonical: SITE_URL,
-    languages: { en: SITE_URL, he: `${SITE_URL}/he`, "x-default": SITE_URL },
-  },
+    "Flexible Employee Experience support for companies that want to do more for their people, without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
   openGraph: {
-    title: SHARE_TITLE,
-    description: SHARE_DESCRIPTION,
-    url: SITE_URL,
-    siteName: "Or Lagziel",
+    title: "Or Lagziel · אור לגזיאל · People Experience",
+    description:
+      "Flexible Employee Experience support for companies that want to do more for their people, without hiring another full-time role. Six years of experience at global tech companies including monday.com, Meta, and AppsFlyer.",
     type: "website",
     locale: "en_US",
     alternateLocale: "he_IL",
-    images: [
-      {
-        url: OG_IMAGE_URL,
-        secureUrl: OG_IMAGE_URL,
-        width: 1200,
-        height: 630,
-        type: "image/jpeg",
-        alt: "Or Lagziel · Employee experience, start to finish. Planned, produced and delivered.",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SHARE_TITLE,
-    description: SHARE_DESCRIPTION,
-    images: [OG_IMAGE_URL],
+    title: "Or Lagziel · אור לגזיאל · People Experience",
+    description: "Employee experience that connects business and people.",
   },
 };
 
-// Sets lang/dir on <html> from the address before first paint: "/he" is
-// Hebrew (right-to-left), everything else English. Kept intentionally tiny.
-const dirScript = `
-(function () {
-  var he = /^\\/he(\\/|$)/.test(window.location.pathname);
-  document.documentElement.lang = he ? "he" : "en";
-  document.documentElement.dir = he ? "rtl" : "ltr";
-})();
-`;
+function readSitePart(filename: string): string {
+  return fs.readFileSync(
+    path.join(process.cwd(), "app", "_site", filename),
+    "utf8"
+  );
+}
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const siteCss = readSitePart("site.css");
+
   return (
-    <html
-      lang="en"
-      dir="ltr"
-      suppressHydrationWarning
-      className={`${manrope.variable} ${heebo.variable}`}
-    >
+    <html lang="he" dir="rtl" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: dirScript }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Heebo:wght@400;500;700&display=swap"
+        />
+        {/* The site's real stylesheet, injected verbatim (same bytes as the
+            live artifact) rather than re-authored through Tailwind. */}
+        <style dangerouslySetInnerHTML={{ __html: siteCss }} />
       </head>
-      <body suppressHydrationWarning>
-        {children}
-      </body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
