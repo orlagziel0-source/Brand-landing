@@ -18,34 +18,10 @@
     --band-hover-bg:#1A1816;
     --band-hover-text:#F7F4EE;
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:#17130F;
-      --ink:#F3EEE5;
-      --stone:#A79E8F;
-      --stone-light:#4A443B;
-      --accent:#D97C8C;
-      --accent-hover:#EFA3AF;
-      --pine:#7FC2B0;
-      --ochre:#E3B463;
-      --denim:#8FB0D9;
-      --line:rgba(243,238,229,.14);
-      --line-strong:rgba(243,238,229,.24);
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#17130F;
-    --ink:#F3EEE5;
-    --stone:#A79E8F;
-    --stone-light:#4A443B;
-    --accent:#D97C8C;
-    --accent-hover:#EFA3AF;
-    --pine:#7FC2B0;
-    --ochre:#E3B463;
-    --denim:#8FB0D9;
-    --line:rgba(243,238,229,.14);
-    --line-strong:rgba(243,238,229,.24);
-  }
+  /* Dark-mode palette intentionally removed (2026-10-23): the brand palette
+     must never swap based on a visitor device/OS dark-mode setting. There is
+     no manual theme toggle in the UI, so this block only ever caused the
+     mobile all-black / wrong-color bug reported by the client. */
 
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
@@ -558,9 +534,6 @@
   .li-go{ color:#0A66C2; }
   .li-tag{ color:#666; }
   @media (min-width:1000px){ .li-card{ flex:none; } }
-  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .li-card{ background:#1d2226; color:#e9e6e2; border-color:rgba(255,255,255,.1); }
-    :root:not([data-theme="light"]) .li-name, :root:not([data-theme="light"]) .li-text{ color:#e9e6e2; }
-    :root:not([data-theme="light"]) .li-react i{ border-color:#1d2226; } :root:not([data-theme="light"]) .li-go{ color:#71b7fb; } }
 
   /* Vendor strip: slow running names with a colored label per category, then a local-makers note */
   #network{ padding-block:32px; }
