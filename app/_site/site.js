@@ -340,6 +340,10 @@
     var t = translations[lang];
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+    // The site ships a (currently unused) dark-mode palette guarded by
+    // :not([data-theme="light"]); pin it to light so a visitor's device
+    // dark-mode setting never swaps the brand's bordeaux/cream palette.
+    document.documentElement.setAttribute('data-theme', 'light');
 
     document.querySelectorAll('[data-i18n]').forEach(function(el){
       var val = getPath(t, el.getAttribute('data-i18n'));
