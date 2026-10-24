@@ -119,12 +119,12 @@
   .hero-line1{ display:block; font-weight:500; color:color-mix(in srgb, var(--band-text) 85%, transparent); }
   .hero-line2{ display:block; font-weight:800; color:var(--band-text); }
   .hero-subtitle{ margin-top:20px; max-width:560px; font-size:clamp(1.25rem,2vw,1.5rem); color:color-mix(in srgb, var(--band-text) 80%, transparent); line-height:1.6; }
-  .hero-engagement-2{ margin-top:2px!important; }
   .hero-engagement{ margin-top:12px; max-width:560px; font-size:1rem; color:color-mix(in srgb, var(--band-text) 65%, transparent); line-height:1.6; }
   .hero-bar{ display:block; width:0; height:1px; margin-top:32px; background:color-mix(in srgb, var(--band-text) 40%, transparent); transition:width .7s cubic-bezier(.22,1,.36,1); }
   .hero-bar.in{ width:40px; }
-  .hero-service{ margin-top:20px; font-size:1rem; text-transform:uppercase; letter-spacing:.14em; color:color-mix(in srgb, var(--band-text) 70%, transparent); }
-  .hero-cta{ margin-top:12px; }
+  .hero-service-row{ margin-top:20px; display:flex; align-items:center; justify-content:space-between; row-gap:12px; column-gap:16px; flex-wrap:wrap; }
+  .hero-service{ margin:0; font-size:1rem; text-transform:uppercase; letter-spacing:.14em; color:color-mix(in srgb, var(--band-text) 70%, transparent); }
+  .hero-cta{ margin-top:0; }
   .btn-invert{
     display:inline-flex; align-items:center; gap:8px; border-radius:999px;
     background:var(--band-text); color:var(--band-bg); text-decoration:none; font-size:.95rem;
@@ -146,7 +146,7 @@
     .hero{ padding-block:128px 96px; }
     .hero-subtitle{ line-height:1.6; }
     .hero-bar{ margin-top:40px; }
-    .hero-service{ margin-top:24px; }
+    .hero-service-row{ margin-top:24px; }
   }
 
   /* events marquee: position is driven by JS (requestAnimationFrame), not
@@ -188,6 +188,8 @@
   /* point of view */
   .pov-inner{ max-width:880px; margin-inline:auto; }
   .pov-statement{ font-size:clamp(2.1rem,5vw,3.4rem); font-weight:700; line-height:1.1; }
+  .pov-link{ color:var(--stone); font-size:.62em; text-decoration:underline; text-underline-offset:2px; }
+  .pov-link:hover{ color:var(--accent); }
   .pov-supporting{ margin-top:44px; max-width:640px; }
   .pov-bar-row{ display:flex; gap:4px; width:80px; height:4px; margin-bottom:16px; }
   .pov-bar-row span{ flex:1; border-radius:999px; }
@@ -348,24 +350,33 @@
   @media (prefers-reduced-motion: reduce){
     .reveal, .reveal.pre{ transition:none; opacity:1; transform:none; }
   }
-  /* first screen: hero + photo strip fit together on open */
-  .hero{ padding-block:clamp(28px,5vh,56px) clamp(24px,4vh,44px); }
+  /* first screen: hero + photo strip fit together on open.
+     svh (small viewport height) is used instead of vh: on mobile Safari,
+     100vh is measured with the address bar hidden, so a page that fits
+     at 100vh can still overflow the shorter viewport the visitor actually
+     sees at first load (address bar visible). svh is pinned to that
+     shorter, guaranteed-visible height, so the photo strip reliably ends
+     up inside the first screen instead of just below it. */
+  .hero{ padding-block:clamp(14px,2.6svh,28px) clamp(10px,2svh,20px); }
   .hero-inner{ max-width:1100px; }
-  #hero-heading{ font-size:clamp(2.4rem,6vw,5rem); line-height:1.08; margin:0; }
-  .hero-subtitle{ margin-top:clamp(10px,1.8vh,18px); font-size:clamp(1.1rem,1.6vw,1.35rem); line-height:1.45; }
-  .hero-engagement{ margin-top:clamp(6px,1.2vh,10px); font-size:clamp(.92rem,1.1vw,1rem); line-height:1.5; }
-  .hero-bar{ margin-top:clamp(14px,2.4vh,24px); }
-  .hero-service{ margin-top:clamp(10px,1.6vh,14px); font-size:clamp(.8rem,1vw,.92rem); }
-  .hero-cta{ margin-top:clamp(10px,1.6vh,14px); }
-  .btn-invert{ padding:12px 26px; }
-  .marquee-row{ padding-block:clamp(12px,2vh,20px); }
-  .marquee-item{ height:clamp(110px,19vh,200px); width:auto; aspect-ratio:1.6; }
+  #hero-heading{ font-size:clamp(1.8rem,6vw,5rem); line-height:1.06; margin:0; }
+  .hero-subtitle{ margin-top:clamp(5px,1svh,10px); font-size:clamp(.98rem,1.6vw,1.35rem); line-height:1.35; }
+  .hero-engagement{ margin-top:clamp(3px,.7svh,7px); font-size:clamp(.82rem,1.1vw,1rem); line-height:1.35; }
+  .hero-bar{ margin-top:clamp(8px,1.4svh,16px); }
+  .hero-service-row{ margin-top:clamp(12px,2svh,20px); }
+  .hero-service{ margin:0; font-size:clamp(.7rem,1vw,.92rem); }
+  .hero-cta{ margin-top:0; }
+  .btn-invert{ padding:10px 22px; }
+  .gallery-intro{ margin:clamp(12px,2.2svh,24px) 0 clamp(5px,.8svh,8px); }
+  .marquee-row{ padding-block:clamp(6px,1.2svh,12px); }
+  .marquee-item{ height:clamp(92px,17svh,190px); width:auto; aspect-ratio:1.6; }
   @media (min-width:768px){
-    .hero{ padding-block:clamp(32px,6vh,64px) clamp(28px,5vh,52px); }
-    .hero-bar{ margin-top:clamp(14px,2.4vh,24px); }
-    .hero-service{ margin-top:clamp(10px,1.6vh,14px); }
-    .marquee-row{ padding-block:clamp(14px,2.4vh,24px); }
-    .marquee-item{ height:clamp(130px,21vh,220px); width:auto; }
+    .hero{ padding-block:clamp(32px,6svh,64px) clamp(28px,5svh,52px); }
+    .hero-bar{ margin-top:clamp(14px,2.4svh,24px); }
+    .hero-service-row{ margin-top:clamp(10px,1.6svh,14px); }
+    .gallery-intro{ margin:64px 0 14px; }
+    .marquee-row{ padding-block:clamp(14px,2.4svh,24px); }
+    .marquee-item{ height:clamp(130px,21svh,220px); width:auto; }
   }
 
   /* project window: a quiet round "+" on each photo; the name appears only on hover; click opens the story */
@@ -422,11 +433,8 @@
   }
   body.pj-open{ overflow:hidden; }
 
-  /* project window: text only */
-  .pj{ width:min(620px,100%); grid-template-columns:1fr!important; }
-  .pj-media{ display:none!important; }
-  .pj-body{ padding:40px 36px 28px; }
-  @media (max-width:600px){ .pj-body{ padding:36px 22px 22px; } }
+  /* project window: image clearly visible at the top (mobile) / side (desktop) */
+  .pj-body{ padding:28px 22px 24px; }
 
   /* the point-of-view statement matches the hero headline size */
   .pov-statement{ font-size:clamp(2.4rem,6vw,5rem); line-height:1.08; }
