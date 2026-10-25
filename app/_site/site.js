@@ -58,7 +58,6 @@
       },
       values: {
         title: "You don't need a big budget to create a meaningful employee experience.",
-        p1: "I believe great employee experiences start with thoughtfulness, creativity, and a genuine understanding of people.",
         p2: "After years at AppsFlyer, Meta, and monday.com, I bring the knowledge and experience I've gained at large organizations to smaller, growing companies too, tailored to each organization's people, needs, and budget."
       },
       gallery: { label: "Events and initiatives", alt: "Photo from an employee experience event", photoBy: "Photo: ", photographers: { victor: "Victor Levy", tomer: "Tomer Foltyn" }, intro: "A glimpse of the work" },
@@ -117,7 +116,6 @@
       },
       values: {
         title: "לא צריך תקציב גדול כדי ליצור חוויית עובד משמעותית.",
-        p1: "אני מאמינה שחוויית עובד טובה מתחילה במחשבה, ביצירתיות ובהיכרות אמיתית עם האנשים.",
         p2: "אחרי שנים ב-AppsFlyer, Meta ו-monday.com, אני מביאה את הידע והניסיון שצברתי בחברות גדולות גם לחברות קטנות וצומחות, ומתאימה אותם לאנשים, לצרכים ולתקציב של כל ארגון."
       },
       gallery: { label: "אירועים ופרויקטים", alt: "תמונה מאירוע חוויית עובד", photoBy: "צילום: ", photographers: { victor: "ויקטור לוי", tomer: "תומר פולטין" }, intro: "קצת מהעשייה" },
@@ -132,7 +130,7 @@
       build: {
         title: "מה אפשר לבנות יחד",
         categories: [
-          { title: "תוכנית שנתית לחוויית עובד", body: "בניית תמונת השנה, מטרות, עוגנים, תקציב, לוח פעילות ותכנון קדימה.", tags: ["תכנון שנתי","חגים","תקציב","רגעי עובד","תקשורת פנימית","תוכניות שוטפות"] },
+          { title: "תוכנית שנתית לחוויית עובד", body: "בניית גאנט שנתי, מטרות, בניית תקציב, לוח פעילויות.", tags: ["תכנון שנתי","חגים","תקציב","רגעי עובד","תקשורת פנימית","תוכניות שוטפות"] },
           { title: "מסע העובד ורגעים משמעותיים", body: "בניית חוויה לאורך נקודות המגע המשמעותיות של העובד, מהיום הראשון ועד רגעים אישיים, משפחתיים ובריאותיים.", tags: ["אונבורדינג","ימי הולדת","חופשת לידה","חתונות","וולנס","משפחות"] },
           { title: "קהילות עובדים", body: "בניית קהילות לעובדים סביב תחומי עניין, תחביבים ועולמות תוכן, עם העובדים עצמם כמובילי הקהילה.", tags: ["וולנס","ספרים","הורים","השקעות","קהילות מקצועיות"] },
           { title: "אירועים ופרויקטים", body: "תכנון והובלה של אירועים ופרויקטים ממוקדים כחלק מחוויית העובד, מהרעיון והקונספט ועד הביצוע בפועל.", tags: ["חגים","אירועים","Offsites","יוזמות תרבות","השקות פנימיות","התנדבויות ו-Do Good"] }
