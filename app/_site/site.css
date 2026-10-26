@@ -82,12 +82,13 @@
   .mobile-lang{ display:flex; align-items:center; }
   .mobile-nav-wrap{ border-top:1px solid var(--line); }
   .mobile-nav{
-    display:flex; align-items:center; gap:24px; overflow-x:auto; padding-block:12px;
+    display:flex; align-items:center; gap:18px; padding-block:12px;
+    overflow-x:auto; scroll-snap-type:x proximity;
     -ms-overflow-style:none; scrollbar-width:none;
   }
   .mobile-nav::-webkit-scrollbar{ display:none; }
-  .mobile-nav a{ flex-shrink:0; white-space:nowrap; font-size:.9rem; opacity:.82; text-decoration:none; }
-  .mobile-nav .btn-outline{ flex-shrink:0; white-space:nowrap; padding:7px 16px; }
+  .mobile-nav a{ flex-shrink:0; scroll-snap-align:start; white-space:nowrap; font-size:.86rem; opacity:.82; text-decoration:none; }
+  .mobile-nav .btn-outline{ flex-shrink:0; scroll-snap-align:start; white-space:nowrap; padding:7px 16px; }
 
   @media (min-width:768px){
     .header-row{ height:84px; }
@@ -197,6 +198,7 @@
   .pov-bar-row .c2{ background:var(--pine); }
   .pov-bar-row .c3{ background:var(--ochre); }
   .pov-supporting p{ font-size:clamp(1.25rem,2.2vw,1.5rem); color:var(--stone); line-height:1.6; }
+  .pov-stat-line1{ font-size:.72em; }
 
   /* section headings (shared by work + build) */
   .section-heading{ font-size:clamp(1.8rem,3.4vw,2.75rem); font-weight:700; }
@@ -328,8 +330,11 @@
   .tm-more{ margin-top:8px; background:none; border:0; padding:0; font:inherit; font-size:.82rem; font-weight:500; color:color-mix(in srgb, var(--tint) 75%, #1A1816); cursor:pointer; text-decoration:underline; text-underline-offset:3px; }
   .tm-who{ margin-top:12px; font-size:.82rem; color:#5B5346; line-height:1.35; }
   .tm-name{ font-weight:700; font-style:normal; color:#1A1816; }
+  .tm-showmore-wrap{ display:none; }
+  .tm-showmore{ background:none; border:1px solid var(--line); border-radius:999px; padding:9px 22px; font:inherit; font-size:.85rem; color:var(--accent); cursor:pointer; transition:background .2s,color .2s; }
+  .tm-showmore:hover{ background:var(--accent); color:var(--paper); }
   @media (min-width:900px){
-    .tm-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:920px; align-items:start; overflow:visible; scroll-snap-type:none; gap:28px; }
+    .tm-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); max-width:920px; margin-inline:auto; align-items:start; overflow:visible; scroll-snap-type:none; gap:28px; }
     .tm-card{ flex:none; }
   }
   @media (prefers-reduced-motion: reduce){ .tm-card, .tm-card.c2, .tm-card.c3{ transition:none; } }
@@ -357,19 +362,19 @@
      sees at first load (address bar visible). svh is pinned to that
      shorter, guaranteed-visible height, so the photo strip reliably ends
      up inside the first screen instead of just below it. */
-  .hero{ padding-block:clamp(14px,2.6svh,28px) clamp(10px,2svh,20px); }
+  .hero{ padding-block:clamp(18px,3.2svh,30px) clamp(14px,2.4svh,22px); }
   .hero-inner{ max-width:1100px; }
   #hero-heading{ font-size:clamp(1.8rem,6vw,5rem); line-height:1.06; margin:0; }
-  .hero-subtitle{ margin-top:clamp(5px,1svh,10px); font-size:clamp(.98rem,1.6vw,1.35rem); line-height:1.35; }
-  .hero-engagement{ margin-top:clamp(3px,.7svh,7px); font-size:clamp(.82rem,1.1vw,1rem); line-height:1.35; }
-  .hero-bar{ margin-top:clamp(8px,1.4svh,16px); }
-  .hero-service-row{ margin-top:clamp(12px,2svh,20px); }
+  .hero-subtitle{ margin-top:clamp(8px,1.4svh,12px); font-size:clamp(.98rem,1.6vw,1.35rem); line-height:1.35; }
+  .hero-engagement{ margin-top:clamp(5px,1svh,9px); font-size:clamp(.82rem,1.1vw,1rem); line-height:1.35; }
+  .hero-bar{ margin-top:clamp(12px,1.8svh,18px); }
+  .hero-service-row{ margin-top:clamp(14px,2.2svh,22px); }
   .hero-service{ margin:0; font-size:clamp(.7rem,1vw,.92rem); }
   .hero-cta{ margin-top:0; }
   .btn-invert{ padding:10px 22px; }
-  .gallery-intro{ margin:clamp(12px,2.2svh,24px) 0 clamp(5px,.8svh,8px); }
-  .marquee-row{ padding-block:clamp(6px,1.2svh,12px); }
-  .marquee-item{ height:clamp(92px,17svh,190px); width:auto; aspect-ratio:1.6; }
+  .gallery-intro{ margin:clamp(16px,2.6svh,26px) 0 clamp(8px,1.1svh,10px); }
+  .marquee-row{ padding-block:clamp(8px,1.4svh,14px); }
+  .marquee-item{ height:clamp(84px,16svh,190px); width:auto; aspect-ratio:1.6; }
   @media (min-width:768px){
     .hero{ padding-block:clamp(32px,6svh,64px) clamp(28px,5svh,52px); }
     .hero-bar{ margin-top:clamp(14px,2.4svh,24px); }
@@ -516,6 +521,9 @@
     .tm-text{ font-size:.88rem; line-height:1.5; }
     .tm-more{ font-size:.74rem; margin-top:6px; }
     .tm-who{ margin-top:8px; font-size:.72rem; }
+    .tm-grid > .tm-card:nth-child(n+4){ display:none; }
+    .tm-grid.tm-expanded > .tm-card:nth-child(n+4){ display:block; }
+    .tm-showmore-wrap{ display:flex; justify-content:center; margin-top:18px; }
   }
 
   /* LinkedIn posts styled as small LinkedIn post cards, full width under About */

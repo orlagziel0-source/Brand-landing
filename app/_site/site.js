@@ -116,7 +116,7 @@
       },
       values: {
         title: "לא צריך תקציב גדול כדי ליצור חוויית עובד משמעותית.",
-        p2: "אחרי שנים ב-AppsFlyer, Meta ו-monday.com, אני מביאה את הידע והניסיון שצברתי בחברות גדולות גם לחברות קטנות וצומחות, ומתאימה אותם לאנשים, לצרכים ולתקציב של כל ארגון."
+        p2: "אחרי שנים ב-Meta, AppsFlyer ו-monday.com, אני מביאה את הידע והניסיון שצברתי לחברות וארגונים בכל שלב ובכל גודל, ומתאימה את חוויית העובד לאנשים, לתרבות הארגונית ולתקציב."
       },
       gallery: { label: "אירועים ופרויקטים", alt: "תמונה מאירוע חוויית עובד", photoBy: "צילום: ", photographers: { victor: "ויקטור לוי", tomer: "תומר פולטין" }, intro: "קצת מהעשייה" },
       work: {
@@ -130,10 +130,10 @@
       build: {
         title: "מה אפשר לבנות יחד",
         categories: [
-          { title: "תוכנית שנתית לחוויית עובד", body: "בניית גאנט שנתי, מטרות, בניית תקציב, לוח פעילויות.", tags: ["תכנון שנתי","חגים","תקציב","רגעי עובד","תקשורת פנימית","תוכניות שוטפות"] },
-          { title: "מסע העובד ורגעים משמעותיים", body: "בניית חוויה לאורך נקודות המגע המשמעותיות של העובד, מהיום הראשון ועד רגעים אישיים, משפחתיים ובריאותיים.", tags: ["אונבורדינג","ימי הולדת","חופשת לידה","חתונות","וולנס","משפחות"] },
+          { title: "תוכנית שנתית לחוויית עובד", body: "בניית גאנט שנתי, מטרות, בניית תקציב, לוח פעילויות.", tags: ["תכנון שנתי","חגים","תקציב","תקשורת פנימית","תוכניות שוטפות"] },
+          { title: "מסע העובד ורגעים משמעותיים", body: "בניית חוויה לאורך נקודות המגע המשמעותיות של העובד, מהיום הראשון ועד רגעים אישיים, משפחתיים ובריאותיים.", tags: ["אונבורדינג","ימי הולדת","חופשת לידה","חתונות","משפחות"] },
           { title: "קהילות עובדים", body: "בניית קהילות לעובדים סביב תחומי עניין, תחביבים ועולמות תוכן, עם העובדים עצמם כמובילי הקהילה.", tags: ["וולנס","ספרים","הורים","השקעות","קהילות מקצועיות"] },
-          { title: "אירועים ופרויקטים", body: "תכנון והובלה של אירועים ופרויקטים ממוקדים כחלק מחוויית העובד, מהרעיון והקונספט ועד הביצוע בפועל.", tags: ["חגים","אירועים","Offsites","יוזמות תרבות","השקות פנימיות","התנדבויות ו-Do Good"] }
+          { title: "אירועים ופרויקטים", body: "תכנון והובלה של אירועים ופרויקטים ממוקדים כחלק מחוויית העובד, מהרעיון והקונספט ועד הביצוע בפועל.", tags: ["אירועים","Offsites","יוזמות תרבות","השקות פנימיות","התנדבויות ו-Do Good"] }
         ]
       },
       about: {
@@ -484,8 +484,22 @@
       tmGrid.appendChild(fig);
     });
 
+    tmGrid.classList.remove('tm-expanded');
+    var tmShowMoreLabels = lang === 'he'
+      ? { more: 'קרא עוד המלצות', less: 'הצג פחות' }
+      : { more: 'Read more testimonials', less: 'Show less' };
+    var tmShowMoreBtn = document.getElementById('tm-showmore');
+    if (tmShowMoreBtn) {
+      tmShowMoreBtn.textContent = tmShowMoreLabels.more;
+      tmShowMoreBtn.setAttribute('aria-expanded', 'false');
+      tmShowMoreBtn.onclick = function(){
+        var open = tmGrid.classList.toggle('tm-expanded');
+        tmShowMoreBtn.textContent = open ? tmShowMoreLabels.less : tmShowMoreLabels.more;
+        tmShowMoreBtn.setAttribute('aria-expanded', String(open));
+      };
+    }
 
-    var POSTS = {"he": {"label": "מהלינקדאין שלי", "read": "לקריאה בלינקדאין", "note": "", "items": [{"url": "https://lnkd.in/p/eQx_dVRk", "tag": "Lights On", "project": "lights", "text": "מה שיצרנו כאן יחד זה לתת חיים חדשים לפריטים שכבר ויתרו עליהם. הכי סימבולי, וכל כך מרגש.", "photo": 14}, {"url": "https://lnkd.in/p/eHiWm4yH", "tag": "TED Break", "project": "ted", "text": "לפעמים בשביל לחבר צוות לא צריך אירוע ענק או פעילות מוגזמת. אפשר פשוט לעצור רגע מהיום יום, לשבת ביחד, ולהקשיב.", "photo": 16}, {"url": "https://lnkd.in/p/eJ-keMzA", "tag": "AF Born", "project": "afborn", "text": "עוד פרויקט שגורם לי להתרגש פעמיים בחודש, כל פעם מחדש.", "photo": 0}], "author": "אור לגזיאל", "role": "ייעוץ חוויית עובד"}, "en": {"label": "From my LinkedIn", "read": "Read on LinkedIn", "note": "Posts are in Hebrew", "items": [{"url": "https://lnkd.in/p/eQx_dVRk", "tag": "Lights On", "project": "lights", "text": "What we created here together is new life for items people had already given up on. So symbolic, and so moving.", "photo": 14}, {"url": "https://lnkd.in/p/eHiWm4yH", "tag": "TED Break", "project": "ted", "text": "Sometimes connecting a team doesn't take a huge event or an over-the-top activity. You can simply pause the day-to-day, sit together, and listen.", "photo": 16}, {"url": "https://lnkd.in/p/eJ-keMzA", "tag": "AF Born", "project": "afborn", "text": "Another project that gets me excited twice a month, every single time.", "photo": 0}], "author": "Or Lagziel", "role": "People Experience Consultant"}};
+    var POSTS ={"he": {"label": "מהלינקדאין שלי", "read": "לקריאה בלינקדאין", "note": "", "items": [{"url": "https://lnkd.in/p/eQx_dVRk", "tag": "Lights On", "project": "lights", "text": "מה שיצרנו כאן יחד זה לתת חיים חדשים לפריטים שכבר ויתרו עליהם. הכי סימבולי, וכל כך מרגש.", "photo": 14}, {"url": "https://lnkd.in/p/eHiWm4yH", "tag": "TED Break", "project": "ted", "text": "לפעמים בשביל לחבר צוות לא צריך אירוע ענק או פעילות מוגזמת. אפשר פשוט לעצור רגע מהיום יום, לשבת ביחד, ולהקשיב.", "photo": 16}, {"url": "https://lnkd.in/p/eJ-keMzA", "tag": "AF Born", "project": "afborn", "text": "עוד פרויקט שגורם לי להתרגש פעמיים בחודש, כל פעם מחדש.", "photo": 0}], "author": "אור לגזיאל", "role": "ייעוץ חוויית עובד"}, "en": {"label": "From my LinkedIn", "read": "Read on LinkedIn", "note": "Posts are in Hebrew", "items": [{"url": "https://lnkd.in/p/eQx_dVRk", "tag": "Lights On", "project": "lights", "text": "What we created here together is new life for items people had already given up on. So symbolic, and so moving.", "photo": 14}, {"url": "https://lnkd.in/p/eHiWm4yH", "tag": "TED Break", "project": "ted", "text": "Sometimes connecting a team doesn't take a huge event or an over-the-top activity. You can simply pause the day-to-day, sit together, and listen.", "photo": 16}, {"url": "https://lnkd.in/p/eJ-keMzA", "tag": "AF Born", "project": "afborn", "text": "Another project that gets me excited twice a month, every single time.", "photo": 0}], "author": "Or Lagziel", "role": "People Experience Consultant"}};
 
     var NET = {"en": {"title": "Partners along the way.", "body": "Dozens of vendors, creators and nonprofits we have worked with on projects over the years.", "groups": [{"title": "Gifts", "names": ["Wish Gift", "TFactor", "Z-GUY", "BuyMe", "Bizing"]}, {"title": "Family", "names": ["Mor For Your Baby", "Silver Bell", "Manhigota"]}, {"title": "Production", "names": ["MOMENTA", "BLEND", "MP LIVE", "VIVO", "AP PRO", "BARDUGO"]}, {"title": "Culinary", "names": ["Yarzin Sella", "R2M", "Biscotti", "Amphora", "10Bis"]}, {"title": "Workshops", "names": ["Fitmate", "Guru Zuzu", "Shlofta", "Molet", "Clayla TLV", "Sup Yoga TLV"]}, {"title": "Nonprofits", "names": ["Latet", "Na Laga'at", "Shavot", "Beit Hashanti", "Just A Second", "Simcha Layeled", "Venatata"]}], "local": {"title": "Also believes in local, homegrown work.", "body": "Alongside long-standing vendors and partners, it's important to make room for small businesses, independent creators and women-owned businesses, from the north to the south.\nI believe good collaborations don't just create meaningful experiences for employees. They can also support Israeli enterprise, strengthen local businesses, and give a stage to talented people."}}, "he": {"title": "שותפים לדרך.", "body": "עשרות ספקים, יוצרים ועמותות שעבדנו יחד על פרויקטים לאורך השנים.", "groups": [{"title": "מתנות", "names": ["Wish Gift", "TFactor", "Z-GUY", "BuyMe", "ביזינג"]}, {"title": "משפחה", "names": ["Mor For Your Baby", "Silver Bell", "מנהיגותה"]}, {"title": "הפקה", "names": ["MOMENTA", "BLEND", "MP LIVE", "VIVO", "AP PRO", "ברדוגו"]}, {"title": "קולינריה", "names": ["ירזין סלה", "R2M", "ביסקוטי", "אמפורה", "תן ביס"]}, {"title": "סדנאות", "names": ["Fitmate", "גורו זוזו", "שלופטה", "Molet", "Clayla TLV", "Sup Yoga TLV"]}, {"title": "עמותות", "names": ["לתת", "נא לגעת", "Shavot", "בית השנטי", "Just A Second", "שמחה לילד", "ונתתה"]}], "local": {"title": "מאמינה גם בעשייה מקומית.", "body": "לצד העבודה עם ספקים ושותפים ותיקים, חשוב לי לתת מקום גם לעסקים קטנים, ליוצרים עצמאיים ולעסקים בבעלות נשים, מהצפון ועד הדרום.\nאני מאמינה ששיתופי פעולה טובים לא רק יוצרים חוויות משמעותיות לעובדים, אלא גם יכולים לתמוך בעשייה ישראלית, לחזק עסקים מקומיים ולתת במה לאנשים מוכשרים."}}};
     var nt = NET[lang] || NET.en;
@@ -563,7 +577,7 @@
     });
   });
 
-  var initialLang = 'en';
+  var initialLang = 'he';
   try {
     var stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored === 'he' || stored === 'en') initialLang = stored;
