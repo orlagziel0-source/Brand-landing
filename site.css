@@ -374,14 +374,14 @@
   .btn-invert{ padding:10px 22px; }
   .gallery-intro{ margin:clamp(16px,2.6svh,26px) 0 clamp(8px,1.1svh,10px); }
   .marquee-row{ padding-block:clamp(8px,1.4svh,14px); }
-  .marquee-item{ height:clamp(84px,16svh,190px); width:auto; aspect-ratio:1.6; }
+  .marquee-item{ height:clamp(104px,20svh,230px); width:auto; aspect-ratio:1.6; }
   @media (min-width:768px){
     .hero{ padding-block:clamp(32px,6svh,64px) clamp(28px,5svh,52px); }
     .hero-bar{ margin-top:clamp(14px,2.4svh,24px); }
     .hero-service-row{ margin-top:clamp(10px,1.6svh,14px); }
     .gallery-intro{ margin:64px 0 14px; }
     .marquee-row{ padding-block:clamp(14px,2.4svh,24px); }
-    .marquee-item{ height:clamp(130px,21svh,220px); width:auto; }
+    .marquee-item{ height:clamp(170px,26svh,290px); width:auto; }
   }
 
   /* project window: a quiet round "+" on each photo; the name appears only on hover; click opens the story */
